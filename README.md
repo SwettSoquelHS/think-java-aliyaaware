@@ -2,7 +2,7 @@
 
 Think Java
 
-This will be the repository you use to store the exercises you complete from Think Java.
+This will be the repository you use to store the exercises you complete from Think Java. You will create a directory for each chapter you are working on, so for example, you will create a directory named `chapter2` (No spaces in directory names EVER for this class).
 
 # Goals
 1. Create a standard way to submit the work you do for readings.
@@ -28,5 +28,5 @@ If an exercise prompts you to write code but does not provide the name of the cl
 
 For example, if there was an Exercise 10 and it required you to write a program that printed "I ride bikes!"
    * Create the class, Exercise10 (in the file Exercise10.java)
-   * Create a main method and peform the task
+   * Create a `main` method and peform the task.
    * Refer to Chapter 1, 2 and your class notes if you need help.
