@@ -1,10 +1,17 @@
 public class Date{
 	public static void main(string[] args){
+		String day;
+		String month;
+		String date;
+		String year;
 		
-		American format:
-		Thursday, July 16, 2015
-		European format:
-		Thursday 16 July 2015
+		day = "Thursday";
+		month = "July";
+		date = "16"
+		year = "2015"
+		System.out.println("American format:"\n day + ", " + month + date +", "+year);
+		System.out.println("European format:" \n day + date + month + year);
+		
 	}
 
 }
