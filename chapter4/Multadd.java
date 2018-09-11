@@ -16,7 +16,6 @@ public class Multadd
 		double b = Math.exp(-x);
 		double c = Math.sqrt(1-b);
 		double help = multadd(a,b,c);
-		return help;
 
 		//x e−x + √1 − e−x
 	}
@@ -32,7 +31,7 @@ public class Multadd
 		double y = 0.5;
 		double z = Math.sin(Math.PI/4.0);
 		double complexHi = multadd(x, y, z);
-		System.out.println(complexHi);
+		System.out.println(complexHi%.3f);
 
 		// adding logs 
 		double m= 1;
