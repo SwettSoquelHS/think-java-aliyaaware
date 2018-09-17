@@ -7,6 +7,6 @@ public class Time{
 
 		int answer = hour*minute*second;
 
-		System.out.println("It has been "answer+ " seconds since midnight");
+		System.out.println("It has been " + answer + " seconds since midnight");
 	}
 }
