@@ -15,7 +15,7 @@ public class Multadd
 		double a = x;
 		double b = Math.exp(-x);
 		double c = Math.sqrt(1-b);
-		double help = multadd(a,b,c);
+		return multadd(a,b,c);
 
 		//x e−x + √1 − e−x
 	}
