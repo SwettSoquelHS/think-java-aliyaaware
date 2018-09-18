@@ -19,8 +19,8 @@ public class abecedarian{
     	}
 
 		for (int i = 0; i<word.length(); i++){
-			char[] = i;
-			System.out.println("Char at i: " + i );
+			if (word.charAt(i) < word.charAt(i + 1))
+				return true;
 		}
 		return false;
 	}
