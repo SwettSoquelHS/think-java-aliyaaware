@@ -15,7 +15,11 @@ public class Swettercise{
 		System.out.println(" is printed backwards, " + reverseStr(someWord));
 
 		int num = 35;
-		System.out.println(isPrime(num));
+		System.out.println(num + " is a prime number, "+isPrime(num));
+
+
+		int nums = 45;
+		System.out.println(nums + " collatzed is " + collatzThis(nums));
 
 	}
 	public static boolean isPalindrome(String theWord){
@@ -49,9 +53,21 @@ public class Swettercise{
 			x--;	
 		}	
 
-		return number;
+		return true;
 		
 	}
 
+	public static int collatzThis(int x){
+		if(x == 1){
+            System.out.println(x);
+        }else if (x % 2 == 0) {
+        	System.out.println(x);
+            collatzThis((x / 2));
+        } else{
+        	System.out.println(x);
+            collatzThis((x * 3)+1);
+        }
+        return x;
+	}
 
 }
