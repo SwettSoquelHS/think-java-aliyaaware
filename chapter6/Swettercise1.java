@@ -36,6 +36,8 @@ public class Swettercise1{
 	}
 
 	public static boolean reverseStr( String str){
+		//this method is supposed to return a string, 
+		//so you can build one up on the fly as you are looping over your string.
 		str = str.toLowerCase();
 		for (int i=0; i< str.length(); i++){
 			char character = str.charAt(str.length()-1-i);

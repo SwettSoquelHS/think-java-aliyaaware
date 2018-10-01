@@ -1,5 +1,5 @@
 
-public class abecedarian{
+public class Exercise4{
 	public static  void main(String args[])
 	{
 // final test product
