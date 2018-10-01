@@ -1,4 +1,4 @@
-public class Swettercise{
+public class Swettercise1{
 	public static void main(String[] args){
 		System.out.println("Sweat it out!");
 
