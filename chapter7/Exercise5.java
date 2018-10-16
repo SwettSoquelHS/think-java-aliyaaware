@@ -1,6 +1,6 @@
-public class Exercise4{
-    public static void main(String[] args){
-        int n = 100;
+public class Exercise5{
+	public static void main(String[] args){
+    	int n = 100;
  
         boolean[] isPrime = new boolean[n+1];
         for (int i = 2; i <= n; i++) {
@@ -22,10 +22,23 @@ public class Exercise4{
             if (isPrime[i]) primes++;
         }
         System.out.println("The number of primes > or = to " + n + " is " + primes);
-    }
+	}
 }
 
 
 
 // Write a method called sieve that takes an integer parameter, n, and returns a 
 //boolean array that indicates, for each number from 0 to n - 1, whether the number is prime.
+
+
+/*Input: an integer n > 1.
+ 
+ Let A be an array of Boolean values, indexed by integers 2 to n,
+ initially all set to true.
+ 
+ for i = 2, 3, 4, ..., not exceeding √n:
+   if A[i] is true:
+     for j = i2, i2+i, i2+2i, i2+3i, ..., not exceeding n:
+       A[j] := false.
+ 
+ Output: all i such that A[i] is true.*/
