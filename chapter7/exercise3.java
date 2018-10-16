@@ -1,4 +1,4 @@
-public class exercise3{
+public class Exercise3{
 
 	public static void main(String[] args){
 		int largeArray[] = new int[]{1, 3, 4, 56, 5};
@@ -24,4 +24,3 @@ public class exercise3{
 
 
 	No you cannot use an enhanced for loop because it asks for specific index value*/
-	

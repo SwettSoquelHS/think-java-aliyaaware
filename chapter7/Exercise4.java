@@ -1,4 +1,4 @@
-public class seive{
+public class Exercise4{
 	public static void main(String[] args){
     	int n = 100;
         // initially assume all integers are prime
