@@ -14,11 +14,11 @@ public class Swettercise1{
 		System.out.println("isPalindrome: " + someWord + "? " + isPalindrome(someWord));
 		System.out.println(" is printed backwards, " + reverseStr(someWord));
 
-		int num = 35;
+		int num = 12;
 		System.out.println(num + " is a prime number, "+isPrime(num));
 
 
-		int nums = 45;
+		int nums = 12;
 		System.out.println(nums + " collatzed is " + collatzThis(nums));
 
 	}
@@ -59,15 +59,24 @@ public class Swettercise1{
 	}
 
 	public static int collatzThis(int x){
-		while (x%2 ==0){
-			System.out.println(x);
-            collatzThis((x / 2));
-		}
-        return x;	
+		while (x != 1) 
+	    { 
+	        System.out.print(x + " "); 
+	  
+	        // If n is odd 
+	        if (x== 1) 
+	            x = 3*x + 1; 
+	  
+	        // If even 
+	        else
+	            x = x/2; 
+	    } 
+	    return x;
+	  
 	}
 
 }
-/*if(x == 1){
+		/*if(x == 1){
             System.out.println(x);
         }else if (x % 2 == 0) {
         	System.out.println(x);
