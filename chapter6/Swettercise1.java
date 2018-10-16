@@ -35,32 +35,39 @@ public class Swettercise1{
 		return true;
 	}
 
-	public static boolean reverseStr( String str){
+	public static String reverseStr( String str){
 		//this method is supposed to return a string, 
 		//so you can build one up on the fly as you are looping over your string.
 		str = str.toLowerCase();
 		for (int i=0; i< str.length(); i++){
 			char character = str.charAt(str.length()-1-i);
 			System.out.print(character);
+
 		}
-		return true;
+		return str;
+
 	}
 
-	public static boolean isPrime(int x){
-		int number = x;
-		if(x<=0){
-			return false;
-		}else{
-			number = x/2;
-			x--;	
-		}	
 
-		return true;
+	public static boolean isPrime(int x){
+		for(int i=2;i<x;i++) {
+        	if(x%i==0)
+            	return false;
+    	}
+   		return true;
 		
 	}
 
 	public static int collatzThis(int x){
-		if(x == 1){
+		while (x%2 ==0){
+			System.out.println(x);
+            collatzThis((x / 2));
+		}
+        return x;	
+	}
+
+}
+/*if(x == 1){
             System.out.println(x);
         }else if (x % 2 == 0) {
         	System.out.println(x);
@@ -69,7 +76,4 @@ public class Swettercise1{
         	System.out.println(x);
             collatzThis((x * 3)+1);
         }
-        return x;
-	}
-
-}
+        return x;*/
