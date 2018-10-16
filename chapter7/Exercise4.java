@@ -1,7 +1,10 @@
 public class Exercise4{
     public static void main(String[] args){
         int n = 100;
- 
+        System.out.println("The number of primes is " + sieve(n));
+    }
+    public static boolean sieve(int n){
+
         boolean[] isPrime = new boolean[n+1];
         for (int i = 2; i <= n; i++) {
             isPrime[i] = true;
@@ -15,13 +18,7 @@ public class Exercise4{
                 }
             }
         }
-
-        // count primes
-        int primes = 0;
-        for (int i = 2; i <= n; i++) {
-            if (isPrime[i]) primes++;
-        }
-        System.out.println("The number of primes > or = to " + n + " is " + primes);
+        return true;
     }
 }
 

@@ -1,7 +1,11 @@
 public class Exercise3{
 
     public static void main(String[] args){
-        int largeArray[] = new int[]{1, 3, 4, 56, 5};
+        int[] largeArray = new int []{1, 3, 4, 56, 5};
+        System.out.println("Index position of the Maximum value of the array is:  " + indexOfMax(largeArray));
+    }
+    public static int indexOfMax(int[] largeArray){
+        //largeArray = new int []{1, 3, 4, 56, 5};
         int max=largeArray[0];
         int index =0;
         for (int i=0; i<largeArray.length; i++){
@@ -10,8 +14,7 @@ public class Exercise3{
                     index = i;
                 }                   
         }
-
-            System.out.println("Index position of the Maximum value of the array is:  " + index);
+        return index;
     }
 }
 
