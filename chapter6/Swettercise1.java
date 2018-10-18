@@ -10,9 +10,9 @@ public class Swettercise1{
 		System.out.println("isPalindrome: " + someWord + "? " + isPalindrome(someWord));
 		System.out.println(" is printed backwards, " + reverseStr(someWord));
 
-		someWord = "nope";
+		someWord = "I haz win?";
 		System.out.println("isPalindrome: " + someWord + "? " + isPalindrome(someWord));
-		System.out.println(" is printed backwards, " + reverseStr(someWord));
+		System.out.println(someWord + " is printed backwards, " + reverseStr(someWord));
 
 		int num = 12;
 		System.out.println(num + " is a prime number, "+isPrime(num));
@@ -38,13 +38,13 @@ public class Swettercise1{
 	public static String reverseStr( String str){
 		//this method is supposed to return a string, 
 		//so you can build one up on the fly as you are looping over your string.
+		String backwards="";
 		str = str.toLowerCase();
-		for (int i=0; i< str.length(); i++){
-			char character = str.charAt(str.length()-1-i);
-			System.out.print(character);
-
+		for (int i=str.length()-1; i>= 0; i--){
+			//char character = str.charAt(str.length()-1-i);
+			backwards = backwards + str.charAt(i);
 		}
-		return str;
+		return backwards;
 
 	}
 
@@ -59,30 +59,20 @@ public class Swettercise1{
 	}
 
 	public static int collatzThis(int x){
+		String str="";
 		while (x != 1) 
 	    { 
-	        System.out.print(x + " "); 
-	  
-	        // If n is odd 
-	        if (x== 1) 
-	            x = 3*x + 1; 
-	  
-	        // If even 
-	        else
-	            x = x/2; 
+	    	System.out.print(str + ", " + x);
+
+	    	if (x%2==0){
+	    		x=x/2;
+	    	}else{
+	    		x = 3*x + 1;
+	    	}
+	
 	    } 
 	    return x;
 	  
 	}
 
 }
-		/*if(x == 1){
-            System.out.println(x);
-        }else if (x % 2 == 0) {
-        	System.out.println(x);
-            collatzThis((x / 2));
-        } else{
-        	System.out.println(x);
-            collatzThis((x * 3)+1);
-        }
-        return x;*/
