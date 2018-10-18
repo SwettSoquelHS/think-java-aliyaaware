@@ -74,9 +74,4 @@ public class Swettercise1{
 	    return x;
 	  
 	}
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1558e11af420d89f1e87eef2450dd95733128162
