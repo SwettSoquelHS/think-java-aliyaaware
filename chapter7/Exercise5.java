@@ -1,12 +1,14 @@
 public class Exercise5{
-
     public static void main(String[] args){
         int n =56;
-        System.out.print(areFactors(n)
+        System.out.print(areFactors(n));
 
     }
-    public static int areFactors(int n, int m){
-        array = new int[]{1, 2, 3, 44, 34, 23, 26}
+    public static int areFactors(int n){
+        array = new int[]{1, 2, 3, 44, 34, 23, 26};
+        for (int i= 0; i >= n.length(); i++){
+        	System.out.print(n);
+        }
     }
 }
 

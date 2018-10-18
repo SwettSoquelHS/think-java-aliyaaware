@@ -1,26 +1,23 @@
 public class Exercise4{
     public static void main(String[] args){
-        int n = 100;
-        System.out.println("The number of primes is " + sieve(n));
+        int n = 8;
+        System.out.println("The number is prime? " + sieve(n));
     }
     public static boolean sieve(int n){
 
-        boolean[] isPrime = new boolean[n+1];
-        for (int i = 2; i <= n; i++) {
-            isPrime[i] = true;
-        }
-
-        for (int x = 2; x*x <= n; x++) {
-
-            if (isPrime[x]) {
-                for (int j = x; x*j <= n; j++) {
-                    isPrime[x*j] = false;
-                }
+        if (n>=1)
+        {
+            for (int i = 2; i <= n; i++) 
+            {
+                if ( n%i ==0)
+                    return false;
             }
+            return true;
         }
         return true;
     }
 }
+
 
 
 
