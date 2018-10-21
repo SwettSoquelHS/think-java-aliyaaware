@@ -18,8 +18,8 @@ public class Swettercise1{
 		System.out.println(num + " is a prime number, "+isPrime(num));
 
 
-		int nums = 12;
-		System.out.println(nums + " collatzed is " + collatzThis(nums));
+		int nums = 4;
+		System.out.println(collatzThis(nums));
 
 	}
 	public static boolean isPalindrome(String theWord){
@@ -39,7 +39,7 @@ public class Swettercise1{
 		//this method is supposed to return a string, 
 		//so you can build one up on the fly as you are looping over your string.
 		String backwards="";
-		str = str.toLowerCase();
+
 		for (int i=str.length()-1; i>= 0; i--){
 			//char character = str.charAt(str.length()-1-i);
 			backwards = backwards + str.charAt(i);
@@ -59,16 +59,17 @@ public class Swettercise1{
 	}
 
 	public static int collatzThis(int x){
-		String str="";
+		String str= x + "";
 		while (x != 1) 
 	    { 
-	    	System.out.print(str + ", " + x);
-
+	    	System.out.print(x + ", ");
+	    	
 	    	if (x%2==0){
 	    		x=x/2;
 	    	}else{
 	    		x = 3*x + 1;
 	    	}
+
 	
 	    } 
 	    return x;
