@@ -1,6 +1,6 @@
 public class Exercise5{
     public static void main(String[] args){
-        int n =  2;
+        int n =  8;
         int[] array = new int[]{1, 4, 12, 10, 6, 8};
         System.out.print(areFactors(n, array));
 
@@ -11,10 +11,10 @@ public class Exercise5{
         {
             if (array[i]%n==0)
             { 
-                return true;
+                return false;
             }else
             {
-                return false;
+                return true;
             }
 
         }
