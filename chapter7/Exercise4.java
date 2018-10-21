@@ -5,7 +5,7 @@ public class Exercise4{
     }
     public static boolean sieve(int n){
 
-        if (n>=1)
+        while (n>=1)
         {
             for (int i = 2; i <= n-1; i++) 
             {
