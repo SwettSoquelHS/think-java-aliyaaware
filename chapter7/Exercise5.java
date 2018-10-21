@@ -1,16 +1,28 @@
 public class Exercise5{
     public static void main(String[] args){
-        int n =56;
-        System.out.print(areFactors(n));
+        int n =  2;
+        int[] array = new int[]{1, 4, 12, 10, 6, 8};
+        System.out.print(areFactors(n, array));
 
     }
-    public static int areFactors(int n){
-        array = new int[]{1, 2, 3, 44, 34, 23, 26};
-        for (int i= 0; i >= n.length(); i++){
-        	System.out.print(n);
+    public static boolean areFactors(int n, int[] array){
+        int i =0;
+        while (array[i] > 0)
+        {
+            if (array[i]%n==0)
+            { 
+                return true;
+            }else
+            {
+                return false;
+            }
+
         }
+        return false;
     }
 }
+
+
 
 /*Write a method named areFactors that takes an integer n 
 and an array of integers, and that returns true if the numbers 
