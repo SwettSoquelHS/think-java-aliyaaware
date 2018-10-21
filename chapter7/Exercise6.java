@@ -1,13 +1,18 @@
 public class Exercise6{
-
-    public static void main(String[] args){
-        int n =56;
-        System.out.print(areFactors(n)
-
-    }
-    public static int arePrimeFactors(int n, int m){
-        array = new int[]{1, 2, 3, 44, 34, 23, 26}
-    }
+	public static void main(String[] args){
+		int n = 3;
+		int[] array = new int[]{1,2,3,4,5};
+		System.out.print(arePrimeFactors(n, array));
+	}
+	public static boolean arePrimeFactors(int n, int[] array){
+		int result =1;
+		for (int i=2; i<n; i++){
+			if(n%i!=0 && result*array[i]==n){
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
 /*Write a method named arePrimeFactors that takes an integer n 
