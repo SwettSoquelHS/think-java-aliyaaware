@@ -1,7 +1,7 @@
 public class Exercise5{
     public static void main(String[] args){
-        int n =  8;
-        int[] array = new int[]{1, 4, 12, 10, 6, 8};
+        int n = 13;
+        int[] array = new int[]{1, 12, 99};
         System.out.print(areFactors(n, array));
 
     }
@@ -9,7 +9,7 @@ public class Exercise5{
         int i =0;
         while (array[i] > 0)
         {
-            if (array[i]%n==0)
+            if (n%array[i]==0)
             { 
                 return false;
             }else

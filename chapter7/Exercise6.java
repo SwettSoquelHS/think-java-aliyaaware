@@ -1,14 +1,14 @@
 public class Exercise6{
 	public static void main(String[] args){
-		int n = 31;
-		int[] array = new int[]{2,3,5};
+		int n = 8;
+		int[] array = new int[]{2,2,2};
 		System.out.print(arePrimeFactors(n, array));
 	}
 	public static boolean arePrimeFactors(int n, int[] array){
 		int result =1;
 		int j = 0;
 		for (int i =2; i<n; i++){
-			if(n%i==0 && result*array[j]!=n){
+			if(n%i==0 && array[i]*array[i]!=n){
 				return false;
 			}
 		}
