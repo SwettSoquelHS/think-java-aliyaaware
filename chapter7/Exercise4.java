@@ -3,7 +3,7 @@ public class Exercise4{
         int n = 1234;
         System.out.println(sieve(n));
     }
-    public static boolean sieve(int x){
+    public static boolean[] sieve(int x){
 
         while (x>0)
         {
