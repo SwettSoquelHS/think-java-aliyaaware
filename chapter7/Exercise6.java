@@ -1,19 +1,29 @@
 public class Exercise6{
 	public static void main(String[] args){
 		int n = 8;
-		int[] array = new int[]{2,2,2};
+		int[] array = new int[]{2,1,4};
 		System.out.print(arePrimeFactors(n, array));
 	}
 	public static boolean arePrimeFactors(int n, int[] array){
 		int result =1;
 		int j = 0;
-		for (int i =2; i<n; i++){
-			if(n%i==0 && array[i]*array[i]!=n){
-				return false;
-			}
+		for (int i =0; i<array.length; i++){
+			result*=array[i];
+			
 		}
-		return true;
+		if(isPrime(array)==false && result==n){
+				return true;
+			}
+		return false;
 	}
+	public static boolean isPrime(int[] x){
+        for(int j=2;j<x.length;j++) {
+            if(x[j]%j==0)
+                return false;
+        }
+        return true;
+        
+    }
 }
 
 /*Write a method named arePrimeFactors that takes an integer n 
