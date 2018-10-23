@@ -6,17 +6,9 @@ public class Exercise5{
 
     }
     public static boolean areFactors(int n, int[] array){
-        int i =0;
-        while (array[i] > 0)
-        {
+        for (int i =0; i<array.length; i++){
             if (n%array[i]==0)
-            { 
-                return false;
-            }else
-            {
                 return true;
-            }
-
         }
         return false;
     }

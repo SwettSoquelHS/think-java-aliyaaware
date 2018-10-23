@@ -3,17 +3,24 @@ public class Exercise4{
         int n = 1234;
         System.out.println(sieve(n));
     }
-    public static boolean sieve(int x){
-
-        while (x>0)
+    public static boolean[] sieve(int x){
+        bool[] arr = new bool[x];
+        for (int i = 0; i < arr.length; i++) 
         {
-            for (int i = 2; i <= x-1; i++) 
-            {
-                if ( x%i ==0)
-                    return false;
+            if(isPrime(arr[i])){
+                return true;
             }
-            return true;
+            return false;
+        }
+        return arr;
+    }
+
+    public static boolean isPrime(int x){
+        for(int i=2;i<x;i++) {
+            if(x%i==0)
+                return false;
         }
         return true;
+        
     }
 }
