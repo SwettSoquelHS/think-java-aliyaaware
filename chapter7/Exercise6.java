@@ -8,7 +8,7 @@ public class Exercise6{
 		int result =1;
 		int j = 0;
 		for (int i =2; i<n; i++){
-			if(n%i==0 && array[i]*array[i]!=n){
+			if(n%i==0 && array[i]*result!=n){
 				return false;
 			}
 		}
@@ -16,6 +16,6 @@ public class Exercise6{
 	}
 }
 
-/*Write a method named arePrimeFactors that takes an integer n 
+/*Write a method named arePrimegitFactors that takes an integer n 
 and an array of integers, and that returns true if the numbers 
 in the array are all prime and their product is n.*/
