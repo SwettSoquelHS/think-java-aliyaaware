@@ -1,16 +1,16 @@
 public class Exercise5{
     public static void main(String[] args){
-        int n = 13;
-        int[] array = new int[]{1, 12, 99};
+        int n = 12;
+        int[] array = new int[]{1,12,4,6,2,3};
         System.out.print(areFactors(n, array));
 
     }
     public static boolean areFactors(int n, int[] array){
         for (int i =0; i<array.length; i++){
-            if (n%array[i]==0)
-                return true;
+            if (n%array[i]!=0)
+                return false;
         }
-        return false;
+        return true;
     }
 }
 
