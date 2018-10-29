@@ -18,7 +18,7 @@ public class Swettercise1{
 		System.out.println(num + " is a prime number, "+isPrime(num));
 
 
-		int nums = 4;
+		int nums = 11;
 		System.out.println(collatzThis(nums));
 
 	}
@@ -58,21 +58,20 @@ public class Swettercise1{
 		
 	}
 
-	public static int collatzThis(int x){
-		String str= x + "";
+	public static String collatzThis(int x){
+		String str=x + "";
 		while (x != 1) 
-	    { 
-	    	System.out.print(x + ", ");
-	    	
+	    {
 	    	if (x%2==0){
 	    		x=x/2;
 	    	}else{
 	    		x = 3*x + 1;
 	    	}
 
+			System.out.print(x+ ", ");
 	
-	    } 
-	    return x;
+	    }
+	    return str;
 	  
 	}
 }
