@@ -1,7 +1,7 @@
 public class Exercise4{
     public static void main(String[] args){
-        int n = 12;
-        System.out.print(sieve(n));
+        int n = 2;
+        System.out.println(sieve(n));
     }
     public static boolean[] sieve(int n){
        boolean[] primes = new boolean[n + 1];
