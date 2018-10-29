@@ -59,7 +59,7 @@ public class Swettercise1{
 	}
 
 	public static int collatzThis(int x){
-		String str= x + "";
+		String str= "";
 		while (x != 1) 
 	    { 
 	    	System.out.print(x + ", ");
