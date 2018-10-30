@@ -3,7 +3,7 @@ public class Exercise6
 	public static void main(String[] args)
 	{
 		int n = 8;
-		int[] array = new int[]{4,2,1};
+		int[] array = new int[]{2,2,2};
 		System.out.print(arePrimeFactors(n, array));
 	}
 	public static boolean arePrimeFactors(int n, int[] array)
