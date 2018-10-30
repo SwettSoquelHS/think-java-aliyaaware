@@ -10,7 +10,7 @@ public class Exercise4{
        }
        int num = 2;
        while (true) {
-           for (int i = 2;i<num.length-1; i++) {
+           for (int i = 2;; i++) {
                int multiple = num * i;
                if (multiple > n) {
                    break;
