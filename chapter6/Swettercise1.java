@@ -62,7 +62,7 @@ public class Swettercise1{
 		String str="";
 		while (x != 1) 
 	    {
-	    	System.out.print(x+ ", ");
+	    	str += x+ ", ";
 	    	if (x%2==0){
 	    		x=x/2;
 	    	}else{
@@ -71,7 +71,7 @@ public class Swettercise1{
 	
 	    }
 	    if (x==1){
-	    	System.out.print(x + str);
+	    	str += x;
 	    }
 	    return str;
 	  
