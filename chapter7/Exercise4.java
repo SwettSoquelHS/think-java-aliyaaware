@@ -4,7 +4,7 @@ public class Exercise4{
         System.out.println(sieve(n));
     }
     public static boolean[] sieve(int n){
-       boolean[] primes = new boolean[n + 1];
+       boolean[] primes = new boolean[n];
        for (int i = 2; i < primes.length; i++) {
            primes[i] = true;
        }
