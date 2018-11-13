@@ -13,6 +13,8 @@ public class Clock{
 
 		c.setHour(2800);
 		System.out.println("Clock is: " + c );
+
+		System.out.println("Clock is: " + c.getHour());
 	}
 
 	public Clock(int hour, int minutes, int seconds){
@@ -23,7 +25,11 @@ public class Clock{
 
 	public void setHour(int newHour){
 		if (newHour >=0 && newHour<=23)
-		this.hour = newHour;
+			hour = newHour;
+	}
+
+	public int getHour(){
+		return hour;
 	}
 
 	int hour;

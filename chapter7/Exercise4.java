@@ -1,10 +1,10 @@
 public class Exercise4{
     public static void main(String[] args){
-        int n = 2;
+        int n = 3;
         System.out.println(sieve(n));
     }
     public static boolean[] sieve(int n){
-       boolean[] primes = new boolean[n];
+       boolean[] primes = new boolean[n+1];
        for (int i = 2; i < primes.length; i++) {
            primes[i] = true;
        }
@@ -38,11 +38,6 @@ public class Exercise4{
        return primes;
    }
 }
-
-
-
-
-
 
 // public class Exercise4{
 //     public static void main(String[] args){
