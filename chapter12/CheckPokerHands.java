@@ -16,11 +16,33 @@ public class CheckPokerHands {
     }
 
     public static boolean isFullHouse(Card[] hand){
+        Card fullHouse = new Card[size];
+
 
         return false;
     }
     
     public static Card highCard(Card[] hand){
         return null;
+    }
+    public static Card highCard(Card card){
+        return null;
+    }
+
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rollNo) {
+        this.rank = rank;
+    }
+
+    public String getSuite() {
+        return suite;
+    }
+
+    public void setSuite(String name) {
+        this.suite = suite;
     }
 }

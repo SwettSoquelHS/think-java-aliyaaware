@@ -3,11 +3,11 @@ public class Deck{
 
 	public Deck(){
 		theDeck = new Card[52];
-		int[] suits = Card.CARD_SUITS;
+		int[] suites = Card.CARD_SUITES;
 		int curCard =0;
-		for (int suit : Card.CARD_SUITS){
+		for (int suite : Card.CARD_SUITES){
 			for (int rank : Card.CARD_RANKS){
-				theDeck[curCard] = new Card(rank, suit);
+				theDeck[curCard] = new Card(rank, suite);
 				curCard++;
 			}
 		}
