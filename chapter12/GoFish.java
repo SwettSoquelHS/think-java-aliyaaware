@@ -15,5 +15,10 @@ public class GoFish{
 		System.out.println("the top card is " + theDeck.topCard());
 
 
+
+		Card[] aHand = theDeck.dealHand(5);
+		for (Card c : aHand){
+			System.out.println("the card is "+ aHand);
+		}
 	}
 }
