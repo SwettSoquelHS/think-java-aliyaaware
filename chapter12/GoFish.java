@@ -20,5 +20,8 @@ public class GoFish{
 		for (Card c : aHand){
 			System.out.println("the card is "+ aHand);
 		}
+
+		CheckPokerHands hand = new CheckPokerHands();
+		//System.out.println("is it a flush? " + hand.isStraight());
 	}
 }
