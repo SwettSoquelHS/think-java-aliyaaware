@@ -3,8 +3,9 @@ public class CheckPokerHands {
     // which accepts an array of cards as its only parameter and determines whether or 
     //   not the array of Cards represents a Royal Flush
     public static boolean isRoyalFlush(Card[] hand){
-       // if (isStraightFlush( PokerHand ) && Highest card == Ace);
-       //      return true;   
+      
+        if (isStraightFlush( hand ) && hand[0].CARD_RANKS.equals(14))
+            return true;   
         return false;
     } 
 
@@ -12,7 +13,9 @@ public class CheckPokerHands {
         if ( hand.length != 5 )
             return(false);   // Make sure we have 5 cards....
 
-        return  isStraight( hand ) && isFlush( hand );
+        if(isStraight( hand ) && isFlush( hand ))
+            hand = rank;
+        return false;
     }
 
     public static boolean isFlush(Card[] hand){
@@ -28,7 +31,7 @@ public class CheckPokerHands {
     public static boolean isStraight(Card[] hand)
     {
         int i;
-        int[] testRank;
+        int[] rank;
 
         if ( hand.length != 5 )
             return(false);
@@ -46,15 +49,15 @@ public class CheckPokerHands {
         }
         else
         {
-            testRank = hand[0].CARD_RANKS ; // add 1???????
+            rank = hand[0].CARD_RANKS ; // add 1???????
             for ( i = 1; i < 5; i++ )
             {
-                if ( hand[i].CARD_RANKS != testRank )
+                if ( hand[i].CARD_RANKS != rank )
                     return(false);        // Straight failed...
 
                 //testRank++;   // Next card in hand
             }
-            return true;        // Straight found !
+            return true;   
         }
     }
 
@@ -82,45 +85,43 @@ public class CheckPokerHands {
 
     public static void sortByRank( Card[] hand)
    {
-      int min_j;
+      int minVal;
       for (int i = 0 ; i < hand.length ; i ++ )
       {
-         min_j = i;   // Assume i (h[i]) is the minimum
+         minVal = i;   // Assume i (h[i]) is the minimum
 
          for (int j = i+1 ; j < hand.length ; j++ )
          {
-            if ( j < min_j) //add hand[j].card_ranks < hand[min_j].card_ranks to brakets
+            if ( j < minVal)
             {
-               min_j = j;    // We found a smaller rank value, update min_j     
+               minVal = j;    // update minVal     
             }
          }
-
-         /* Swap a[i] and a[min_j] */
+         // Swap a[i] and a[minVal]
          Card help = hand[i];
-         hand[i] = hand[min_j];
-         hand[min_j] = help;
+         hand[i] = hand[minVal];
+         hand[minVal] = help;
       }
    }
 
 
     public static void sortBySuit( Card[] hand)
    {
-      int min_j;
-
+      int minVal;
       for ( int i = 0 ; i < hand.length ; i ++ )
       {
-         min_j = i;   // Assume elem i (h[i]) is the minimum
+         minVal = i;   // Assume elem i (h[i]) is the minimum
          for ( int j = i+1 ; j < hand.length ; j++ )
          {
-            if ( j < min_j) //hand[j].CARD_SUITS < hand[min_j].CARD_SUITS
+            if ( j < minVal) 
             {
-               min_j = j;    // We found a smaller suit value, update min_j     
+               minVal = j;    //update minVal with smaller suit  
             }
          }
        //swap crds
          Card help = hand[i];
-         hand[i] = hand[min_j];
-         hand[min_j] = help;
+         hand[i] = hand[minVal];
+         hand[minVal] = help;
         }
     }
 
@@ -139,7 +140,7 @@ public class CheckPokerHands {
 
     public String getRank() 
     {
-        return "" + rank + "yes" ;
+        return "" + rank  ;
     }
 
     public void setRank(String rollNo) 
