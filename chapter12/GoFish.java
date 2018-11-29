@@ -22,7 +22,11 @@ public class GoFish{
 		}
 
 		CheckPokerHands hand = new CheckPokerHands();
-		hand.isStraight();
 		System.out.println("is it a flush? " + hand.getRank());
+
+		Card[] straight = hand.isStraight();
+		for (Card c: straight){
+			System.out.println("the card is "+ straight);
+		}
 	}
 }
