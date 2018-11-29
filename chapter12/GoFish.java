@@ -21,7 +21,8 @@ public class GoFish{
 			System.out.println("the card is "+ aHand);
 		}
 
-		Card hand = new CheckPokerHands( aHand );
-		System.out.println("is it a flush? " + hand.isStraightFlush());
+		CheckPokerHands hand = new CheckPokerHands();
+		hand.isStraight();
+		System.out.println("is it a flush? " + hand.getRank());
 	}
 }

@@ -14,7 +14,7 @@ public class CheckPokerHands {
             return(false);   // Make sure we have 5 cards....
 
         if(isStraight( hand ) && isFlush( hand ))
-            hand = rank;
+            return true;
         return false;
     }
 
@@ -140,7 +140,7 @@ public class CheckPokerHands {
 
     public String getRank() 
     {
-        return "" + rank  ;
+        return "" + rank;
     }
 
     public void setRank(String rollNo) 
