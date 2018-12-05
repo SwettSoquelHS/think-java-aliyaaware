@@ -18,12 +18,18 @@ public class GoFish{
 
 		Card[] aHand = theDeck.dealHand(5);
 		for (Card c : aHand){
-			System.out.println("the card is "+ aHand.toString());
+			System.out.println("the card is "+ c.toString());
 		}
 
 		CheckPokerHands hand = new CheckPokerHands();
-		//System.out.println("the card is full house "+ hand.isFullHouse());
-		System.out.println("is it a flush? " + hand);
+		//isFlush()
+		System.out.println("is it a flush? " + hand.getRank());
+
+		// Card[] straight = hand.isStraight();
+		// for (Card c: straight){
+		// 	System.out.println("the card is "+ straight);
+		// }
+
 
 		
 	}
