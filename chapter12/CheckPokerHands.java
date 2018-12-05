@@ -52,7 +52,7 @@ public class CheckPokerHands {
             rank = hand[0].CARD_RANKS ; // add 1???????
             for ( i = 1; i < 5; i++ )
             {
-                if ( hand[i].getRank() != rank )
+                if ( hand[i].CARD_RANKS != rank )
                     return(false);        // Straight failed...
 
                 //testRank++;   // Next card in hand

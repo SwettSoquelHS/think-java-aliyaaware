@@ -35,6 +35,7 @@ public class Card{
 		return this.rank == that.rank && this.suit == that.suit;
 	}
 
+	
     public String toString(){
     	return RANKS[rank] + " of " +  SUITS[suit];
     }	
