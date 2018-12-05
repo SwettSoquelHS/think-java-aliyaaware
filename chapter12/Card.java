@@ -19,9 +19,9 @@ public class Card{
 	public static final int[] CARD_SUITS = {HEARTS, CLUBS, DIAMONDS, SPADES};
 	public static final int[] CARD_RANKS = {2, 3, 4, 5, 6, 7, 8, 9 , 10, JACK, QUEEN, KING, ACE};
 
-	public String toString(){
-		return  SUITS[suit] + " of " + this.rank;
-	}
+	// public String toString(){
+	// 	return  SUITS[suit] + " of " + this.rank;
+	// }
 
 	private int rank;
 	private int suit;
@@ -34,6 +34,10 @@ public class Card{
 	public boolean equals(Card that){
 		return this.rank == that.rank && this.suit == that.suit;
 	}
+
+    public String toString(){
+    	return RANKS[rank] + " of " +  SUITS[suit];
+    }	
 
 
 }

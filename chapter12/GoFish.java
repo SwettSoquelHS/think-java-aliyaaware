@@ -18,7 +18,7 @@ public class GoFish{
 
 		Card[] aHand = theDeck.dealHand(5);
 		for (Card c : aHand){
-			System.out.println("the card is "+ aHand);
+			System.out.println("the card is "+ aHand.toString());
 		}
 
 		CheckPokerHands hand = new CheckPokerHands();
@@ -28,5 +28,8 @@ public class GoFish{
 		for (Card c: straight){
 			System.out.println("the card is "+ straight);
 		}
+
+
+		
 	}
 }
