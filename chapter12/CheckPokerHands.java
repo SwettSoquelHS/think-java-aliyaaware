@@ -52,7 +52,7 @@ public class CheckPokerHands {
             rank = hand[0].CARD_RANKS ; // add 1???????
             for ( i = 1; i < 5; i++ )
             {
-                if ( hand[i].CARD_RANKS != rank )
+                if ( hand[i].getRank() != rank )
                     return(false);        // Straight failed...
 
                 //testRank++;   // Next card in hand
@@ -140,7 +140,7 @@ public class CheckPokerHands {
 
     public String getRank() 
     {
-        return "" + rank;
+        return "" +this.rank;
     }
 
     public void setRank(String rollNo) 
@@ -150,11 +150,15 @@ public class CheckPokerHands {
 
     public String getSuit() 
     {
-        return ""+ suit + "yep";
+        return this.suit + "yep";
     }
 
     public void setSuit(String name) 
     {
         this.suit = suit;
+    }
+
+    public String toString(){
+        return ""+ this.suit + " and " + this.rank;
     }
 }
