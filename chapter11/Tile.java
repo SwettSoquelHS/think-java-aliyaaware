@@ -34,7 +34,7 @@ public class Tile {
     
   }
   public static Tile testTile(){
-    return new Tile(10, 'z');
+    return new Tile('z', 10);
   }
   
   public boolean equals(Object o) {

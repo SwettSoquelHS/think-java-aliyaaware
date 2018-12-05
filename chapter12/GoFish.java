@@ -22,7 +22,11 @@ public class GoFish{
 		}
 
 		CheckPokerHands hand = new CheckPokerHands();
+<<<<<<< HEAD
 		//isFlush()
+=======
+		
+>>>>>>> 0f753b2459c6c107a4e0c0bf4817b79f8a110c17
 		System.out.println("is it a flush? " + hand.getRank());
 
 		// Card[] straight = hand.isStraight();
