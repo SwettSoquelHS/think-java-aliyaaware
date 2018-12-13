@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 public class CheckPokerHands {
 
@@ -33,11 +34,44 @@ public class CheckPokerHands {
 
     // which accepts an array of cards as its only parameter
 
+=======
+public class CheckPokerHands {
 
+    public static void main(String[] args){
+        Card clubs8 = new Card(8, Card.CLUBS );
+        System.out.println("the card in my hand is: " + clubs8);
+>>>>>>> 4105d7cf607e393b27fc888e9f66e9c9e75d005e
 
+        Card heartsQueen = new Card (12, Card.HEARTS);
+        System.out.println("Second card in my hand is: " + heartsQueen);
+
+<<<<<<< HEAD
 
      //and determines whether or 
     //   not the array of Cards represents a Royal Flush
+=======
+        Deck theDeck = new Deck();
+        System.out.println("the top card is " + theDeck.topCard());
+        theDeck.shuffle();
+        System.out.println("the top card is " + theDeck.topCard());
+
+        Card[] aHand = theDeck.dealHand(5);
+        for (Card c : aHand){
+            System.out.println("the card is "+ c.toString());
+        }
+
+        CheckPokerHands hand = new CheckPokerHands();
+        System.out.println("is it a flush? " + hand.getRank());
+
+        // Card[] straight = hand.isStraight();
+        // for (Card c: straight){
+        //  System.out.println("the card is "+ straight);
+        // }
+
+
+        
+    }
+>>>>>>> 4105d7cf607e393b27fc888e9f66e9c9e75d005e
     public static boolean isRoyalFlush(Card[] hand){
       
         if (isStraightFlush( hand ) && hand[0].CARD_RANKS.equals(14))
