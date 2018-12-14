@@ -2,7 +2,6 @@ public class Tile {
 
 	 public static void main(String[] args) {
 	    Tile t = new Tile(10, 'p');
-	    Tile t2 = new Tile(10, 'p');
 	    System.out.println(t); 
 	  }
   private int value;
