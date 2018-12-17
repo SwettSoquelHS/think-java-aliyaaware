@@ -1,9 +1,10 @@
 public class Tile {
-
-	 public static void main(String[] args) {
-	    Tile t = new Tile(10, 'p');
+	
+	public static void main(String[] args) 
+	{
+		Tile t = new Tile(10, 'p');
 	    System.out.println(t); 
-	  }
+	}
   private int value;
   private char letter;
   
@@ -33,7 +34,7 @@ public class Tile {
     
   }
   public static Tile testTile(){
-    return new Tile('z', 10);
+    return new Tile(10, 'z');
   }
   
   public boolean equals(Object o) {
