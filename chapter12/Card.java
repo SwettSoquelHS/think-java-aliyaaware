@@ -39,6 +39,13 @@ public class Card{
     public String toString(){
     	return RANKS[rank] + " of " +  SUITS[suit];
     }	
+    public int getSuit(){
+    return this.suit;
+  }
+
+  public int getRank(){
+    return this.rank;
+  }
 
 
 }
