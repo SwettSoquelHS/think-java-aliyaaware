@@ -5,8 +5,8 @@ public class Tile {
 		Tile t = new Tile(10, 'p');
 	    System.out.println(t); 
 	}
-  private int value;
-  private char letter;
+   int value;
+   char letter;
   
   public Tile(int value, char letter) {
     this.letter = letter;
