@@ -8,7 +8,7 @@ public class ChangeArrays {
             Write a program to add a score of 100 to 
             the the array scores.
         */
-
+        int[] fin =null;
         int[] scores = {88,91,80,78,95};
 
         System.out.println("Current scores are: " + Arrays.toString(scores));
@@ -43,28 +43,64 @@ public class ChangeArrays {
         //TODO 3: Implement the methods below
         int[] arr2 = makeCopyOf(scores);
         //System.out.println("Copy of scores looks like: " + scores);
+
+
+        fin = makeCopyOf(scores);
+        System.out.println("copy of full array " + Arrays.toString(fin));
+
+        fin = addValue(scores, 2);
+        System.out.println("add one value to array " + Arrays.toString(fin));
+
+        fin = removeLast(scores);
+        System.out.println("Remove first value of array " + Arrays.toString(fin));
+
+        fin = removeIndex(scores, 2);
+        System.out.println("remove a value from an index (2) of the array " + Arrays.toString(fin));
+
+
     }
 
 
     public static int[] makeCopyOf(int[] arr){
-        return null;
+        return Arrays.copyOf(arr, arr.length);
+        // int[] temp = new int[arr.length];
+        // System.arraycopy(arr, 0, temp, 0, arr.length);
+        // return temp;
     }
 
-    // int[] arr = {5, 6, 7, 8};
-    // arr = addValueAt(arr, -9, 8);
-    // {5, 6, 7, -9, 8}
 
-    public static int[] addValue(int[] arr, int val, int[] indexAt){
-        int[] arr = {5, 6, 7, 8};
-        arr = addValueAt(arr, -9, 8);
-        return null;
+    public static int[] addValue(int[] arr, int val){
+        int[] tempArr = new int[arr.length+ 1];
+        System.arraycopy(arr, 0, tempArr, 0, arr.length);
+        
+        for(int i=0; i < arr.length; i++)
+            tempArr[i] = arr[i];
+        tempArr[tempArr.length-1] = val;
+        return tempArr;
     }
 
-    public static int[] removeLast(int[] arr){        
-        return null;
+    public static int[] removeLast(int[] arr){ 
+        int[] tempArr = new int[arr.length-1];
+        System.arraycopy(arr, 0, tempArr, 0, arr.length-1);
+
+        for (int i=1; i < arr.length; i++){
+            tempArr[i-1] = arr[i];
+        }       
+        return tempArr;
     }
 
     public static int[] removeIndex(int[] arr, int index){
-        return null;
+        int[] tempArr = new int[arr.length];
+        System.arraycopy(arr, 0, tempArr, 0, arr.length);
+
+       for(var i = arr.length - 1; i >= 0; i--)
+        /*for( int i = 0; i < arr.length-1; i++)*/{ 
+           if ( arr[i] == index) {
+             arr.splice(i, 1); 
+           }
+       }
+
+        return arr;
+        
     }
 }
