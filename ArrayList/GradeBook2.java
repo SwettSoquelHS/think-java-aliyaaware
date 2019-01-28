@@ -5,12 +5,12 @@ import java.util.ArrayList;
     ArrayList can be used to keep track of 
     a collection of similar items.
 */
-public class GradeBook {
+public class GradeBook2 {
 
     public static void main(String[] args){
 
         //Create an instance of a gradebook to add 
-        GradeBook book1 = new GradeBook();
+        GradeBook2 book1 = new GradeBook2();
         book1.addAssignment("Exam1", 0.9 , 1.0);
         book1.addAssignment("Exam2", 0.75, 1.0);
         book1.addAssignment("Quiz" , 0.2 , 0.25);
@@ -25,13 +25,13 @@ public class GradeBook {
     }
 
     /* Gradbook Properties */
-    ArrayList assignments;
+    ArrayList<Assignment> assignments;
 
     /*
         Default constructor.
     */
-    GradeBook(){
-        assignments = new ArrayList();
+    GradeBook2(){
+        assignments = new ArrayList<Assignment>();
     }
 
 
@@ -52,7 +52,7 @@ public class GradeBook {
         boolean result = false;
         int deleteAt = -1;
         for(int i = 0; i < assignments.size(); i++){
-            Assignment asg = (Assignment)assignments.get(i);
+            Assignment asg = assignments.get(i);
             if( assignmentName.equals(asg.getName()) ){
                 deleteAt = i;
                 break;
@@ -77,8 +77,8 @@ public class GradeBook {
         double totalScore = 0;
 
         //Loop over assignments and add up the points
-        for(Object item: assignments){
-            Assignment asg = (Assignment)item;
+        for(Assignment asg: assignments){
+            //Assignment asg = (Assignment)item;
             myScore += asg.getScore();
             totalScore += asg.getTotalPoints();
         }
@@ -94,8 +94,8 @@ public class GradeBook {
             Assignment Name:  score/Total
     */
     void printGradebook(){
-        for(Object o: assignments){
-            Assignment asg = (Assignment)o;
+        for(Assignment asg: assignments){
+            //Assignment asg = (Assignment)o;
             //asg.getName()
             //    The Assignment name:  # / #
             System.out.println("\t" + asg.getName() + ": " + asg.getScore() +

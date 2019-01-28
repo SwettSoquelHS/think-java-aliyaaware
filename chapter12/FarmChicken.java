@@ -3,7 +3,7 @@ public class FarmChicken extends FarmAnimal{
 		super(name);
 	}
 
-	@Override
+	@vOerride
 	public void makeSound(){
 		System.out.println("Cluck like a chicken...");
 
