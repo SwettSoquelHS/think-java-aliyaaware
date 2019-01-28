@@ -1,13 +1,25 @@
 import java.util.Scanner;
 public class CaesarCipher{
     public static void main(String[] args){
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Ceaser Cipher please enter a Sentence you would like encrypted: ")
         String message = new String();
         message = sc.next();
+
+        Scanner num = new Scanner(System.in);
+        System.out.println("how many spaces would you like to be shifted over?: ")
+        String number = new String();
+        number = num.next();
+
         //System.out.println(encrypt(message, 3));
         //System.out.println(decrypt(encrypt(message, 3), 3));
         sc.close();
+    }
+    public static shifted(String n_alpha){
+        String cipher="";
+        String key = "";
     }
 }
 
