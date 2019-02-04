@@ -20,6 +20,7 @@ public class CaesarCipher{
     public static shifted(String n_alpha){
         String cipher="";
         String key = "";
+        
     }
 }
 
