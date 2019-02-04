@@ -10,7 +10,7 @@ public class School{
 		soquel.printClass();
 		System.out.println("Number of students in this school is: " + soquel.numberOfStudents());
 		System.out.println("Average age of students in this school is " + soquel.averageAgeOfStudents() + " years old.");
-		System.out.println("Number of students in this school is: " + soquel.numberOfStudents());			
+		System.out.println("Number of students in each grade is: " + soquel.studentsInGrade());			
 		
 	}
 

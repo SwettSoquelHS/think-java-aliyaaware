@@ -4,7 +4,7 @@ public class Student{
 	protected int grade;
 
 	Student(String name, int age, int grade){
-		name = studentName;
+		studentName=name;
 		this.age=age;
 		this.grade=grade;
 	}
