@@ -5,12 +5,16 @@ public class School{
 		
 		School soquel = new School();
 		soquel.addStudent("fred", 17, 11);
-		soquel.addStudent("sally", 15, 10);
+		soquel.addStudent("Sally", 15, 10);
 
 		soquel.printClass();
-		System.out.println("Number of students in this school is: " + soquel.numberOfStudents());
-		System.out.println("Average age of students in this school is " + soquel.averageAgeOfStudents() + " years old.");
-		System.out.println("Number of students in each grade is: " + soquel.studentsInGrade());			
+
+		soquel.removeStudent("Sally");
+		soquel.printClass();
+		System.out.println("students left is 1");
+		// System.out.println("Number of students in this school is: " + soquel.numberOfStudents());
+		// System.out.println("Average age of students in this school is " + soquel.averageAgeOfStudents() + " years old.");
+			
 		
 	}
 
@@ -44,50 +48,54 @@ public class School{
         return result;
 	}
 
-	int averageAgeOfStudents(){
-		int result =0;
-		int age =0;
-		for(Object o: students){
-			Student stu = (Student)o;
-			age+=stu.getAge();
-		}
-		//age = age/students;
-		if (age>0)
-			result =age/2;
-		return result;
-
-	}
-
-	int studentsInGrade(){
-		return 5;
-	}
-
-	int numberOfStudents(){
-		int result=0; 
-		int grade =0;
-		int totalStudents =0;
-
-		for(Object o: students){
-			Student stu = (Student)o;
-			grade += stu.getGrade();
-			
-		}
-		if(grade > 0)
-			result = grade;
-
-        return result;
-        // totalStudents=0;
-        // for (int i=0; i <students.length; i++){
-        // 	students[i]=totalStudents;
-        // }
-        // return totalStudents;
-
-	}
+	void findStudent(){}
 
 	void printClass(){
 		for(Student stu: students){
             System.out.println("\t" + stu.getName() + " is " + stu.getAge() + " years old and in grade " + 
                 stu.getGrade());
         }
+	}
+
+	// int averageAgeOfStudents(){
+	// 	int result =0;
+	// 	int age =0;
+	// 	for(Object o: students){
+	// 		Student stu = (Student)o;
+	// 		age+=stu.getAge();
+	// 	}
+	// 	//age = age/students;
+	// 	if (age>0)
+	// 		result =age/2;
+	// 	return result;
+	// }
+
+	int numberOfStudents(String[] names){
+		int name =0;
+		int totalStudents =0;
+		students = new ArrayList<Student>();
+
+		for(int i=0; i < names.length; i++){
+			String firstName = names[i];
+			for(int k =i+1; k<names.length; i++){
+				Student s = new Student(firstName);
+				students.add(p);
+			}
+		}
+
+		// for(Object o: students){
+		// 	Student stu = (Student)o;
+		// 	grade += stu.getGrade();
+			
+		// }
+		// if(grade > 0)
+		// 	result = grade;
+
+        return totalStudents;
+        // totalStudents=0;
+        // for (int i=0; i <students.length; i++){
+        // 	students[i]=totalStudents;
+        // }
+        // return totalStudents;
 	}
 }
