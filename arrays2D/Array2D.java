@@ -34,7 +34,7 @@ public class Array2D {
         // "I just want to smell the peanut butter but i cant eat it"
         // you smush the banana in tiny pices
         // then she stares at the food she could be eating
-
+        make2d(2, 2, 3);
 
     }
 
@@ -119,23 +119,21 @@ public class Array2D {
     
 
     public static void make2d(int numRows, int numCols, int value){
-    	
+    	int[][] newArray = new int[numRows][numCols];
+    	for (int i =0; i < newArray[0].length; i++){
+    		for (int j=0; j < newArray.length; j++){
+    			newArray[i][j]= value;
+    			
+    		}
+    	}
+    	//newArray[numRows][numCols] = value;
+    	print2DArray(newArray);
     }
 
 }
 
 
 /* 
-Create a static method named smallest, which should take as a parameter a 2D array of ints 
-named matrix and return the smallest value in the matrix
-
-Eg, for example the following matrix would yield -8:
-12  3    5
-1    -8  9
-20  15  9
-0    18  -2
-
-
 
 [4] Create a static method named make2d, which takes three integer parameters named numRows, 
 numCols, default value. The method will create a new 2d array with the specified dimensions 
