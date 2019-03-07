@@ -2,9 +2,9 @@ public class Array2D {
 
     public static void main(String[] args){
         // //Normal 1-dimensional array
-        // int[] arr1 = {2,3};
+        int[] arr1 = {2,3};
 
-        // //2-Dimensional array
+        //2-Dimensional array
         // int[][] arr2 = new int[2][2];
         // arr2[0][0]=2;
         // arr2[0][1]=3;
@@ -14,7 +14,7 @@ public class Array2D {
         // print2DArray(arr2);
 
         // arr2[1] = arr1;
-        // print2DArray(arr2);
+       // print2DArray(arr2);
 
         int[][] arr3 = new int[2][2];
         arr3[0][0]=2;
@@ -28,6 +28,12 @@ public class Array2D {
 
        // System.out.println("add up columns");
         largestCol(arr3);
+
+        largestRow(arr3);
+
+        // "I just want to smell the peanut butter but i cant eat it"
+        // you smush the banana in tiny pices
+        // then she stares at the food she could be eating
 
 
     }
@@ -59,52 +65,52 @@ public class Array2D {
     }
 
     public static void smallest(int[][] matrix){
-    	int min =0;
-    	int[] num;
+    	int min = matrix[0][0];
     	for(int i=0; i < matrix[0].length; i ++){
     		for(int j =0; j < matrix.length; j++){
-    			num[i]=matrix[j][i];
-    			min = num[i];
+    			if(matrix[i][j]<min){
+                    min = matrix[j][i];
+                }	
     		}
     	}
-    	for (int i = 0; i < num.length; i++) {
-	        if (min < num[i]) {
-	            min = num[i];
-	        }
-	    }
-	    System.out.println( " min number is + " +min);
+    	//for (int i = 0; i < num.length; i++) {
+	   // }
+	   System.out.println( " min number in the matrix is: " +min);
     }
 
     public static void largestRow(int[][] matrix){
-    	int[] val;
-    	for(int j=0; j<matrix.length; j++)
-    	{
-    		for(int i=0; i < matrix[j].length; i++)
-    		{
-
-    			val=matrix[i];
-    			val = val;
+        int[] maxRow = new int[matrix[0].length];
+    	int max = 0;
+        int maxRowNum =0;
+    	for(int j=0; j<matrix[0].length; j++){
+    		for(int i=0; i < matrix[j].length; i++){
+    			maxRow[j]+=matrix[j][i];
     		}
-
     	}
-    	// if (val[0][0]> val[1][1])
-    	// 	return val[0][0];
-    	// return val[1][1];
+    	for (int i=0; i < maxRow.length; i++){
+            if(max< maxRow[i]){
+                max = maxRow[i];
+                maxRowNum = i+1; 
+            }
+        }
+        System.out.println("max row is row: " + maxRowNum+ " with a sum of: "+max);
     }
+
+
 
     public static void largestCol(int[][] matrix){
     	int[] maxColumn = new int[matrix[0].length];
     	int max =0;
     	int maxColNum =0;
     	for(int i=0; i < matrix[0].length; i ++){
-    		for(int j =0; j < matrix.length; j++){
+    		for(int j =0; j < matrix[i].length; j++){
     			maxColumn[i]+=matrix[j][i];
     		}
     	}
-    	for (int i = 0; i < maxColumn.length; i++) {
-	        if (max < maxColumn[i]) {
-	            max = maxColumn[i];
-	            maxColNum = i+1; // column number will associate with its array column starting with 0
+    	for (int j = 0; j < maxColumn.length; j++) {
+	        if (max < maxColumn[j]) {
+	            max = maxColumn[j];
+	            maxColNum = j+1; // column number will associate with its array column starting with 0
 	        }
 	    }
     System.out.println("The highest column sum is Column #"+maxColNum+" with a sum of "+max);
@@ -129,25 +135,6 @@ Eg, for example the following matrix would yield -8:
 20  15  9
 0    18  -2
 
-
-[2]Create a static method named largestRow, which should take a 2D array of ints named matrix 
-and return the ROW number of the row which has the largest sum.
-
-Eg, for example the following matrix would yield 2:
-12  3    5
-1    -8  9
-20  15  9
-0    18  -2
-
-
-[3]Create a static method named largestCol, which should take a 2D array of ints named matrix 
-and return the COLUMN number of the column which has the largest sum.
-
-Eg, for example the following matrix would yield 1:
-12  3    5
-1    -8  9
-20  15  9
-0    18  -2
 
 
 [4] Create a static method named make2d, which takes three integer parameters named numRows, 
