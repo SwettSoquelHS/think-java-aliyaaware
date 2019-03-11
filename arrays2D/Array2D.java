@@ -22,23 +22,25 @@ public class Array2D {
         arr3[1][0]=4;
         arr3[1][1]=5;
 
-       smallest(arr3);
+        print2DArray2(arr3);
+
+       System.out.println( " min number in the matrix is: " + smallest(arr3));
 
        // System.out.print("add up rows in array " + largestRow(arr3));
 
        // System.out.println("add up columns");
-        largestCol(arr3);
+        System.out.println("The highest column sum is in Column # " +largestCol(arr3));
 
-        largestRow(arr3);
+        System.out.println("max row sum is in row: " + largestRow(arr3));
 
         // "I just want to smell the peanut butter but i cant eat it"
         // you smush the banana in tiny pices
         // then she stares at the food she could be eating
-        make2d(2, 2, 3);
+        System.out.println("New 2d array: " + print2DArray(make2d(2, 2, 3)));
 
     }
 
-    public static void print2DArray(int[][] matrix)
+    public static int[][] print2DArray(int[][] matrix)
     {
     	for(int j=0; j<matrix.length; j++)
     	{
@@ -48,6 +50,7 @@ public class Array2D {
     		}
     		System.out.println();
     	}
+        return matrix;
 
     }
 
@@ -64,7 +67,7 @@ public class Array2D {
     	}
     }
 
-    public static void smallest(int[][] matrix){
+    public static int smallest(int[][] matrix){
     	int min = matrix[0][0];
     	for(int i=0; i < matrix[0].length; i ++){
     		for(int j =0; j < matrix.length; j++){
@@ -75,10 +78,10 @@ public class Array2D {
     	}
     	//for (int i = 0; i < num.length; i++) {
 	   // }
-	   System.out.println( " min number in the matrix is: " +min);
+	   return min;
     }
 
-    public static void largestRow(int[][] matrix){
+    public static int largestRow(int[][] matrix){
         int[] maxRow = new int[matrix[0].length];
     	int max = 0;
         int maxRowNum =0;
@@ -93,12 +96,12 @@ public class Array2D {
                 maxRowNum = i+1; 
             }
         }
-        System.out.println("max row is row: " + maxRowNum+ " with a sum of: "+max);
+        return maxRowNum;
     }
 
 
 
-    public static void largestCol(int[][] matrix){
+    public static int largestCol(int[][] matrix){
     	int[] maxColumn = new int[matrix[0].length];
     	int max =0;
     	int maxColNum =0;
@@ -113,25 +116,23 @@ public class Array2D {
 	            maxColNum = j+1; // column number will associate with its array column starting with 0
 	        }
 	    }
-    System.out.println("The highest column sum is Column #"+maxColNum+" with a sum of "+max);
+    return maxColNum;
 
     }
     
 
-    public static void make2d(int numRows, int numCols, int value){
+    public static int[][] make2d(int numRows, int numCols, int value){
     	int[][] newArray = new int[numRows][numCols];
     	for (int i =0; i < newArray[0].length; i++){
     		for (int j=0; j < newArray.length; j++){
     			newArray[i][j]= value;
-    			
     		}
     	}
     	//newArray[numRows][numCols] = value;
-    	print2DArray(newArray);
+    	return newArray;
     }
 
 }
-
 
 /* 
 
