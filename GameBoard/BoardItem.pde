@@ -36,7 +36,7 @@ public class BoardItem{
   public void updateCol(int by){
     if(colId + by <= maxCol-glyphData[0].length && colId +by >=0)
       colId+=by;
-    }
+  }
   
   
   public void updateRow(int by){    

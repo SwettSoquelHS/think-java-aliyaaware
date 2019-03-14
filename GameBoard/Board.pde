@@ -70,8 +70,8 @@ public class Board{
     return new Cell(yAt, xAt);
   }
   
-  public void addItem(){
-    
+  public void addLayer(int[][] theLayer){
+    this.layer = theLayer;
   }
 
 }
