@@ -38,18 +38,19 @@ public class Array2D {
         // then she stares at the food she could be eating
         System.out.println("New 2d array: " +make2d(2, 2, 3));
 
+
     }
 
     public static int[][] print2DArray(int[][] matrix)
     {
-        for(int j=0; j<matrix.length; j++)
-        {
-            for(int i=0; i < matrix[j].length; i++)
-            {
-                System.out.print(matrix[j][i]+ " ");
-            }
-            System.out.println();
-        }
+    	for(int j=0; j<matrix.length; j++)
+    	{
+    		for(int i=0; i < matrix[j].length; i++)
+    		{
+    			System.out.print(matrix[j][i]+ " ");
+    		}
+    		System.out.println();
+    	}
         return matrix;
 
     }
@@ -68,17 +69,17 @@ public class Array2D {
     }
 
     public static int smallest(int[][] matrix){
-        int min = matrix[0][0];
-        for(int i=0; i < matrix[0].length; i ++){
-            for(int j =0; j < matrix.length; j++){
-                if(matrix[i][j]<min){
+    	int min = matrix[0][0];
+    	for(int i=0; i < matrix[0].length; i ++){
+    		for(int j =0; j < matrix.length; j++){
+    			if(matrix[i][j]<min){
                     min = matrix[j][i];
-                }   
-            }
-        }
-        //for (int i = 0; i < num.length; i++) {
-       // }
-       return min;
+                }	
+    		}
+    	}
+    	//for (int i = 0; i < num.length; i++) {
+	   // }
+	   return min;
     }
 
     public static int largestRow(int[][] matrix){
@@ -102,26 +103,27 @@ public class Array2D {
 
 
     public static int largestCol(int[][] matrix){
-        int[] maxColumn = new int[matrix[0].length];
-        int max =0;
-        int maxColNum =0;
-        for(int i=0; i < matrix[0].length; i ++){
-            for(int j =0; j < matrix[i].length; j++){
-                maxColumn[i]+=matrix[j][i];
-            }
-        }
-        for (int j = 0; j < maxColumn.length; j++) {
-            if (max < maxColumn[j]) {
-                max = maxColumn[j];
-                maxColNum = j+1; // column number will associate with its array column starting with 0
-            }
-        }
+    	int[] maxColumn = new int[matrix[0].length];
+    	int max =0;
+    	int maxColNum =0;
+    	for(int i=0; i < matrix[0].length; i ++){
+    		for(int j =0; j < matrix[i].length; j++){
+    			maxColumn[i]+=matrix[j][i];
+    		}
+    	}
+    	for (int j = 0; j < maxColumn.length; j++) {
+	        if (max < maxColumn[j]) {
+	            max = maxColumn[j];
+	            maxColNum = j+1; // column number will associate with its array column starting with 0
+	        }
+	    }
     return maxColNum;
 
     }
     
 
     public static int[][] make2d(int numRows, int numCols, int value){
+
         int[][] newArray = new int[numRows][numCols];
         for (int i =0; i < newArray[0].length; i++){
             for (int j=0; j < newArray.length; j++){
