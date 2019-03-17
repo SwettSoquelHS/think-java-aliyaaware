@@ -36,7 +36,7 @@ public class Array2D {
         // "I just want to smell the peanut butter but i cant eat it"
         // you smush the banana in tiny pices
         // then she stares at the food she could be eating
-        System.out.println("New 2d array: " + print2DArray(make2d(2, 2, 3)));
+        System.out.println("New 2d array: " + print2DArray(make2d(3, 3, 3)));
 
     }
 
