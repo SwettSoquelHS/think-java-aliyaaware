@@ -36,7 +36,12 @@ public class Array2D {
         // "I just want to smell the peanut butter but i cant eat it"
         // you smush the banana in tiny pices
         // then she stares at the food she could be eating
+<<<<<<< HEAD
         System.out.println("New 2d array: " + print2DArray(make2d(3, 3, 3)));
+=======
+        System.out.println("New 2d array: " +make2d(2, 2, 3));
+
+>>>>>>> 11ab87efbfd3fe8c74310404ffbcf040abf09a4f
 
     }
 
@@ -56,15 +61,15 @@ public class Array2D {
 
     public static void print2DArray2(int[][] matrix)
     {
-    	//advanced for to grab values out of an array list not to change values
-    	for (int[] row : matrix)
-    	{
-    		for (int colValue: row)
-    		{
-				System.out.print(colValue + " ");
-    		}
-    		System.out.println();
-    	}
+        //advanced for to grab values out of an array list not to change values
+        for (int[] row : matrix)
+        {
+            for (int colValue: row)
+            {
+                System.out.print(colValue + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static int smallest(int[][] matrix){
@@ -83,14 +88,14 @@ public class Array2D {
 
     public static int largestRow(int[][] matrix){
         int[] maxRow = new int[matrix[0].length];
-    	int max = 0;
+        int max = 0;
         int maxRowNum =0;
-    	for(int j=0; j<matrix[0].length; j++){
-    		for(int i=0; i < matrix[j].length; i++){
-    			maxRow[j]+=matrix[j][i];
-    		}
-    	}
-    	for (int i=0; i < maxRow.length; i++){
+        for(int j=0; j<matrix[0].length; j++){
+            for(int i=0; i < matrix[j].length; i++){
+                maxRow[j]+=matrix[j][i];
+            }
+        }
+        for (int i=0; i < maxRow.length; i++){
             if(max< maxRow[i]){
                 max = maxRow[i];
                 maxRowNum = i+1; 
@@ -122,24 +127,23 @@ public class Array2D {
     
 
     public static int[][] make2d(int numRows, int numCols, int value){
-    	int[][] newArray = new int[numRows][numCols];
-    	for (int i =0; i < newArray[0].length; i++){
-    		for (int j=0; j < newArray.length; j++){
-    			newArray[i][j]= value;
-    		}
-    	}
-    	//newArray[numRows][numCols] = value;
-    	return newArray;
+
+        int[][] newArray = new int[numRows][numCols];
+        for (int i =0; i < newArray[0].length; i++){
+            for (int j=0; j < newArray.length; j++){
+                newArray[i][j]= value;
+            }
+        }
+        //newArray[numRows][numCols] = value;
+        return  print2DArray(newArray);
     }
 
 }
 
 /* 
-
 [4] Create a static method named make2d, which takes three integer parameters named numRows, 
 numCols, default value. The method will create a new 2d array with the specified dimensions 
 of numRows by numCols and fill it the default.
-
 Eg. make2d(2,3, -1) would create an array
 -1 -1 -1
 -1 -1 -1
