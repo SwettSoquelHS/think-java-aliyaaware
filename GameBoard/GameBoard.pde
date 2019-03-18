@@ -1,25 +1,31 @@
 Board theBoard;
 BoardItem item1;
+Sticky stickGuy;
 
 int[][] layer = {
               {0, 255, 125, 144, 1444, 543, 234},
-              {100, 100, 100},
+              {100, 100, 100, 9},
               {0,0,0}
               };
 
 void setup() {
-  size(800, 600);
-
-  theBoard = new Board(width/9, height/15, 13, 15, 40);
+  size(1200, 800);
+  int cellSize = 40;
+  int boardCols = (width-500/cellSize);
+  int boardRows = (width-500/cellSize);
+  theBoard = new Board(20,20,height, width, cellSize);
   
   item1 = new BoardItem(2,5);
   int[][] itemData = {{255,0,255}, 
                       {0,  0,  0}, 
                       {255,0,255}
-                    };
+                     };
   item1.setData(itemData);
   theBoard.addItem(item1);
-
+  theBoard.addLayer( layer);
+  
+  stickGuy = new Sticky(15,15);
+  theBoard.addItem(stickGuy);
 }
 
 void draw() {
