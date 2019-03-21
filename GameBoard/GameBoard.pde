@@ -46,30 +46,71 @@ void mousePressed() {
 }
 
 
-void keyPressed(){
+//void keyPressed(){
+//  if (key == CODED) {
+//    if (keyCode == LEFT) {
+//      MOVE_LEFT = true;
+//      item1.updateCol(-1);
+//    } else if ( keyCode == RIGHT ) {
+//      MOVE_RIGHT = true;
+//      item1.updateCol(1);
+//    } else if (keyCode == UP) {
+//      MOVE_UP = true;
+//      item1.updateRow(-1);
+//    } else if (keyCode == DOWN) {
+//      MOVE_DOWN = true;
+//      item1.updateRow(1);
+//      println(tItem1.getVanguard(1,2));
+//    }
+//  }
+
+//  //32 is spacebar
+//  if (keyCode == 32) {  
+//    SPACE_BAR = true;
+//  }
+//}
+//boolean MOVE_LEFT;  //User is pressing <-
+//boolean MOVE_RIGHT; //User is pressing ->
+//boolean MOVE_UP; //User is pressing ^ arrow
+//boolean MOVE_DOWN;
+//boolean SPACE_BAR;  
+
+
+void keyPressed() {
+  
   if (key == CODED) {
-    if (keyCode == LEFT) {
-      MOVE_LEFT = true;
-      item1.updateCol(-1);
-    } else if ( keyCode == RIGHT ) {
-      MOVE_RIGHT = true;
-      item1.updateCol(1);
-    } else if (keyCode == UP) {
-      MOVE_UP = true;
-      item1.updateRow(-1);
+    if (keyCode == UP) {
+      doUpKey();
+       println(tItem1.getVanguard('u'));
     } else if (keyCode == DOWN) {
-      MOVE_DOWN = true;
-      item1.updateRow(1);
+      doDownKey();
+      println(tItem1.getVanguard('d'));
+    } else if (keyCode == LEFT) {
+      doLeftKey();
+      println(tItem1.getVanguard('l'));
+    } else if (keyCode == RIGHT) {
+      doRightKey();
+      println(tItem1.getVanguard('r'));
     }
   }
-
-  //32 is spacebar
-  if (keyCode == 32) {  
-    SPACE_BAR = true;
-  }
 }
-boolean MOVE_LEFT;  //User is pressing <-
-boolean MOVE_RIGHT; //User is pressing ->
-boolean MOVE_UP; //User is pressing ^ arrow
-boolean MOVE_DOWN;
-boolean SPACE_BAR;  
+
+void doUpKey(){
+  item1.updateRow(-1);
+  tItem1.updateRow(-1);
+}
+
+void doDownKey(){
+  item1.updateRow(1);
+  tItem1.updateRow(1);
+}
+
+void doLeftKey(){
+  item1.updateCol(-1);
+  tItem1.updateCol(-1);
+}
+
+void doRightKey(){
+  item1.updateCol(1);
+  tItem1.updateCol(1);
+}

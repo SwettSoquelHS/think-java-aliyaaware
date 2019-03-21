@@ -1,6 +1,7 @@
 //conways game of life
 Board theBoard;
 BoardItem item1;
+ActiveCells activeCell; 
 
 void setup() {
   size(1200, 800);
@@ -8,6 +9,7 @@ void setup() {
   int boardCols = (width-100)/cellSize;
   int boardRows = (height-100)/cellSize;
   theBoard = new Board(50, 50, boardRows, boardCols, cellSize);
+ 
 
   item1 = new BoardItem(2, 5);
   int[][] item1Data = 
@@ -17,11 +19,16 @@ void setup() {
   item1.setData(item1Data);
   theBoard.addItem( item1 );
   
-}
+  //ArrayList<Cell> cells = new ArrayList<Cell> ();
+  
+  activeCell = new ActiveCells(7,7);
+  theBoard.addItem(activeCell);
+}  
+
 
 void draw() {
   background(255);
-  theBoard.show();
+  theBoard.show();   
 }
 
 void mousePressed() {
