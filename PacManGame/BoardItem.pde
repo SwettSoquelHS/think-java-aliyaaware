@@ -29,12 +29,12 @@ public class BoardItem {
     //      if(fillColor > -1){
             fill(#FFFF33);
             noStroke();
-            //int x = xAt + col*cellSize;
-            //int y = yAt + row*cellSize;
-            //rect(x,y,cellSize,cellSize);
-            ellipse(xAt, yAt, cellSize, cellSize);
-       //   }
-       //}
+    //        int x = xAt + col*cellSize;
+    //        int y = yAt + row*cellSize;
+    //        rect(x,y,cellSize,cellSize);
+            ellipse(xAt, yAt, 50, 50);
+    //      }
+    //   }
     //}
   }
   

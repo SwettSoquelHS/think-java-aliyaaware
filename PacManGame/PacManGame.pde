@@ -8,12 +8,12 @@ BoardItem item1;
 void setup() {
   size(800, 900);
   int cellSize = 26;
-  int boardCols = (width-100)/cellSize; //27 columns
-  int boardRows = (height-100)/cellSize; //30 rows
-  theMaze = new Maze(50, 50, boardRows, boardCols, cellSize);
+  //int boardCols = (width-100)/cellSize; //27 columns
+  //int boardRows = (height-100)/cellSize; //30 rows
+  theMaze = new Maze(50, 50, 30, 26, cellSize);
  
 
-  item1 = new BoardItem(2, 5);
+  item1 = new BoardItem(7, 7);
   int[][] item1Data = 
    {{-1, 0, -1}, 
     { 0, 0, 0}, 

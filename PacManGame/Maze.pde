@@ -38,6 +38,7 @@ public class Maze {
         strokeWeight(1);
         rect(xAt, yAt, cellSize, cellSize);
         drawLayerCell(j, i, xAt, yAt);
+        //drawWalls();  
       }
     }
     
@@ -46,12 +47,78 @@ public class Maze {
         int xAt = item.col()*cellSize;
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
-    }    
+    } 
+    drawWalls();
     
     popMatrix();
   }
   protected void drawWalls(){
-  
+    //top wall
+    stroke(#00AD54);
+    strokeWeight(4);
+    beginShape();
+    //leftside
+    line(0, 0,0,259);
+    line(157,260,0,259);
+    line(157,260,157,337);
+    line(157,337,0,337);
+    //top wall
+    line(0,0,677,0);
+    //right side
+    line(677, 0,677,259);
+    line(520,260,677,259);
+    line(520,260,520,337);
+    line(520,337,677,337);
+    
+    // INNER WALL OF THE TOP HALF
+    
+    //leftside
+    line(26,26,26,233);
+    line(181,234,26,233);
+    line(181,234,181,363);
+    line(181,363,26,363);
+    //top wall
+    line(26,26,651,26);
+    //right side
+    line(651, 26,651,234);
+    line(494,234,651,234);
+    line(494,234,494,363);
+    line(494,363,651,363);
+    endShape();
+    
+    
+    
+    //BOTTOM wall
+    
+    beginShape();
+    //leftside bottom
+    line(0, 0,0,259);
+    line(157,260,0,259);
+    line(157,260,157,337);
+    line(157,337,0,337);
+    //BOTTOM wall
+    line(677,677,0,677);
+    //right side bottom
+    line(677, 0,677,259);
+    line(520,260,677,259);
+    line(520,260,520,337);
+    line(520,337,677,337);
+    
+    // INNER WALL OF THE BOTTOM HALF
+    
+    //leftside
+    line(26,26,26,233);
+    line(181,234,26,233);
+    line(181,234,181,363);
+    line(181,363,26,363);
+    //bottom wall
+    line(26,26,651,26);
+    //right side
+    line(651, 26,651,234);
+    line(494,234,651,234);
+    line(494,234,494,363);
+    line(494,363,651,363);
+    endShape();
   }
   
 
