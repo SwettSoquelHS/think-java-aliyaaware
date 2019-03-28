@@ -33,7 +33,7 @@ public class Board {
         //fill( ? )
         //stroke( ? ) //border color
         //strokeWeight( ? ) // thickness of cell border
-        fill(255);
+        fill(100);
         rect(xAt, yAt, cellSize, cellSize);
         drawLayerCell(j, i, xAt, yAt);
       }

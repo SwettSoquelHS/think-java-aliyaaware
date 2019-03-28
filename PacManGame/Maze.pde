@@ -28,12 +28,14 @@ public class Maze {
       for (int i=0; i < cols; i++) {
         int xAt = i*cellSize;
         int yAt = j*cellSize;
-
+        
         //todo: think about what color we want
         //fill( ? )
         //stroke( ? ) //border color
         //strokeWeight( ? ) // thickness of cell border
-        fill(0);
+        fill(255);
+        stroke(9);
+        strokeWeight(1);
         rect(xAt, yAt, cellSize, cellSize);
         drawLayerCell(j, i, xAt, yAt);
       }
@@ -47,7 +49,11 @@ public class Maze {
     }    
     
     popMatrix();
-  }  
+  }
+  protected void drawWalls(){
+  
+  }
+  
 
   protected void drawLayerCell(int rowId, int colId, int xPos, int yPos) {
     if (layer != null) {

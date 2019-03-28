@@ -10,7 +10,7 @@ void setup() {
   int cellSize = 26;
   int boardCols = (width-100)/cellSize; //27 columns
   int boardRows = (height-100)/cellSize; //30 rows
-  theMaze = new Maze(50, 50, boardRows,boardCols, cellSize);
+  theMaze = new Maze(50, 50, boardRows, boardCols, cellSize);
  
 
   item1 = new BoardItem(2, 5);
