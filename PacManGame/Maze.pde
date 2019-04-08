@@ -4,7 +4,7 @@ public class Maze {
   int cellSize;
   int rows, cols;
   int[][] layer;
-  ArrayList<BoardItem> items;
+  ArrayList<Pacman> items;
 
   public Maze(int x, int y, int numRows, int numCols, int cellSize ) {
     x_pos = x;
@@ -13,10 +13,10 @@ public class Maze {
     rows = numRows;
     cols = numCols;
     layer = null;
-    items = new ArrayList<BoardItem>();
+    items = new ArrayList<Pacman>();
   }
 
-  public void addItem(BoardItem item){
+  public void addItem(Pacman item){
     items.add(item); 
     item.setBounds(rows, cols);
   }
@@ -43,7 +43,7 @@ public class Maze {
     }
     
     //Draw each item on the board
-    for(BoardItem item: items){
+    for(Pacman item: items){
         int xAt = item.col()*cellSize;
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
@@ -53,7 +53,7 @@ public class Maze {
     popMatrix();
   }
   protected void drawWalls(){
-    //top wall
+    //TOP WALL
     stroke(#00AD54);
     strokeWeight(4);
     beginShape();
@@ -70,7 +70,7 @@ public class Maze {
     line(520,260,520,337);
     line(520,337,677,337);
     
-    // INNER WALL OF THE TOP HALF
+    // inner wall of top half
     
     //leftside
     line(26,26,26,233);
@@ -97,7 +97,7 @@ public class Maze {
     line(157,260,157,337);
     line(157,337,0,337);
     //BOTTOM wall
-    line(677,677,0,677);
+    line(0, cellSize*rows, cellSize*cols, 0);
     //right side bottom
     line(677, 0,677,259);
     line(520,260,677,259);
