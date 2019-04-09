@@ -52,7 +52,7 @@ public class Maze {
     
     popMatrix();
   }
-  protected void drawWalls(){
+  protected final void drawWalls(){
     //TOP WALL
     stroke(#00AD54);
     strokeWeight(4);
@@ -92,15 +92,15 @@ public class Maze {
     
     beginShape();
     //leftside bottom
-    line(0, 0,0,259);
+    //line(0,259,0, cellSize*(rows-13));
     line(157,260,0,259);
     line(157,260,157,337);
     line(157,337,0,337);
     //BOTTOM wall
-    line(0, cellSize*rows, cellSize*cols, 0);
+    line(0, cellSize*rows,cellSize*cols, cellSize*(cols+4));
     //right side bottom
-    line(677, 0,677,259);
-    line(520,260,677,259);
+    line(0, cellSize*(rows-14),cellSize*(cols-19),cellSize*(rows-14));
+    line(cellSize*(cols-19),cellSize*(rows-14),cellSize*(cols-19),cellSize*(rows-10));
     line(520,260,520,337);
     line(520,337,677,337);
     
@@ -112,7 +112,7 @@ public class Maze {
     line(181,234,181,363);
     line(181,363,26,363);
     //bottom wall
-    line(26,26,651,26);
+    line(rows-1, cellSize*(rows-1),cellSize*(cols-1), cellSize*(cols+3));
     //right side
     line(651, 26,651,234);
     line(494,234,651,234);

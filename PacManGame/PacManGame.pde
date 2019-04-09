@@ -1,4 +1,5 @@
 // pac man
+PImage rGhost;
 import java.util.ArrayList;
 Maze theMaze;
 Board theBoard;
@@ -11,8 +12,9 @@ void setup() {
   //int boardCols = (width-100)/cellSize; //27 columns
   //int boardRows = (height-100)/cellSize; //30 rows
   theMaze = new Maze(50, 50, 30, 26, cellSize);
- 
-
+  
+  rGhost = loadImage("download.png");
+  
   item1 = new Pacman(7, 7);
   //int[][] item1Data = 
   // {{-1, 0, -1}, 
@@ -28,6 +30,7 @@ void draw() {
   theMaze.show();
   smooth();
   noStroke();
+  image(rGhost,0,0);
 }
 
 
