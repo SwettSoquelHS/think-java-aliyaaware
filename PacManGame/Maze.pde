@@ -1,3 +1,6 @@
+
+
+
 public class Maze {
 
   int x_pos, y_pos;  
@@ -100,9 +103,9 @@ public class Maze {
     line(0, cellSize*rows,cellSize*cols, cellSize*(cols+4));
     //right side bottom
     line(0, cellSize*(rows-14),cellSize*(cols-19),cellSize*(rows-14));
-    line(cellSize*(cols-19),cellSize*(rows-14),cellSize*(cols-19),cellSize*(rows-10));
-    line(520,260,520,337);
-    line(520,337,677,337);
+    line(cellSize*(cols-19),cellSize*(rows-14),cellSize*(cols-19),cellSize*(rows-9));
+    line(rows -1, cellSize*(rows-9),cellSize*(cols-19),cellSize*(rows-9));
+    line(rows -1, cellSize*(rows-9),rows-1, cellSize*(rows-1));
     
     // INNER WALL OF THE BOTTOM HALF
     
@@ -114,13 +117,14 @@ public class Maze {
     //bottom wall
     line(rows-1, cellSize*(rows-1),cellSize*(cols-1), cellSize*(cols+3));
     //right side
-    line(651, 26,651,234);
-    line(494,234,651,234);
-    line(494,234,494,363);
-    line(494,363,651,363);
+    line(0, cellSize*(rows-13),cellSize*(cols-20),cellSize*(rows-13));
+    line(cellSize*(cols-20),cellSize*(rows-13),cellSize*(cols-20),cellSize*(rows-10));
+    line(0, cellSize*(rows-10),cellSize*(cols-20),cellSize*(rows-10));
+    line(0, cellSize*(rows-10),0, cellSize*(rows));
     endShape();
+    
   }
-  
+ 
 
   protected void drawLayerCell(int rowId, int colId, int xPos, int yPos) {
     if (layer != null) {

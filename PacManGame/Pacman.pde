@@ -1,10 +1,17 @@
-public class Pacman{
+class Pacman{
   int radius = 50;
   int direction = 1;
   int direction2 = 0;
    
   float x = 250;
   float y = 250;
+  
+  float mouth_opening, max_mouth_opening, mouth_step;
+  boolean is_mouth_opening = true;
+  boolean am_i_super = false;
+  boolean is_dead = false;
+  
+  
   protected int colId, rowId;
   
   //TODO: This might not be the best way to track
@@ -12,11 +19,19 @@ public class Pacman{
   protected int maxRow, maxCol;
   
   protected int[][] glyphData;
-  
+
   public Pacman(int rowAt, int colAt){
      this.rowId = rowAt;
      this.colId = colAt;
   }
+  
+  void die() {
+    is_dead = true;
+    max_mouth_opening = TWO_PI;
+    mouth_step = .1;
+  }
+  
+ 
   
   public void setData(int[][] data){
      glyphData = data; 

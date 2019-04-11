@@ -4,7 +4,20 @@ import java.util.ArrayList;
 Maze theMaze;
 Board theBoard;
 Pacman item1;
-//ActiveCells activeCell; 
+Ghost[] ghosts;
+ 
+boolean to_corners = false;
+int timer_corners;
+ 
+color[] ghost_colors = {
+  color(255, 0, 0), 
+  color(255, 64, 196), 
+  color(0, 255, 255), 
+  color(255, 128, 0), 
+  color(0, 255, 0), 
+};
+ 
+
 
 void setup() {
   size(800, 900);
@@ -13,24 +26,21 @@ void setup() {
   //int boardRows = (height-100)/cellSize; //30 rows
   theMaze = new Maze(50, 50, 30, 26, cellSize);
   
-  rGhost = loadImage("download.png");
+  //rGhost = loadImage("download.png");
   
   item1 = new Pacman(7, 7);
-  //int[][] item1Data = 
-  // {{-1, 0, -1}, 
-  //  { 0, 0, 0}, 
-  //  {-1, 0, -1}};
-  //item1.setData(item1Data);
   theMaze.addItem( item1 );
+  
+  
 }  
 
 
 void draw() {
-  background(255);
+background(255);
   theMaze.show();
   smooth();
   noStroke();
-  image(rGhost,0,0);
+  //image(rGhost,0,0);
 }
 
 
@@ -58,9 +68,29 @@ void keyPressed(){
   if (keyCode == 32) {  
     SPACE_BAR = true;
   }
+  
+  if ( key == ' ') { 
+    to_corners = !to_corners;
+  }
+  if ( key == 'd' )
+    item1.die();
+  if ( key == 'r' )
+    game_reset();
 }
 boolean MOVE_LEFT;  //User is pressing <-
 boolean MOVE_RIGHT; //User is pressing ->
 boolean MOVE_UP; //User is pressing ^ arrow
 boolean MOVE_DOWN;
 boolean SPACE_BAR;  
+
+void game_reset() {
+  item1.die();
+  //ghosts_reset();
+}
+
+//void ghosts_reset() {
+//  // Could write a proper reset for the ghosts.
+//  for (int i=0; i<ghosts.length; i++)
+//    ghosts[i] = new Ghost(i);
+//}
+ 
