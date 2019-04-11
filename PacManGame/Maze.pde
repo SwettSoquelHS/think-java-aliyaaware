@@ -8,6 +8,7 @@ public class Maze {
   int rows, cols;
   int[][] layer;
   ArrayList<Pacman> items;
+  ArrayList<Pellets> pellet;
 
   public Maze(int x, int y, int numRows, int numCols, int cellSize ) {
     x_pos = x;
@@ -17,11 +18,17 @@ public class Maze {
     cols = numCols;
     layer = null;
     items = new ArrayList<Pacman>();
+    pellet = new ArrayList<Pellets>();
   }
 
   public void addItem(Pacman item){
     items.add(item); 
     item.setBounds(rows, cols);
+  }
+  
+  public void addItem(Pellets food){
+    pellet.add(food); 
+    food.setBounds(rows, cols);
   }
 
   public void show() {
@@ -51,6 +58,9 @@ public class Maze {
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
     } 
+    for(Pellets food: pellet){
+      food.show();
+    }
     drawWalls();
     
     popMatrix();
