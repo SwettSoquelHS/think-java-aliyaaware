@@ -4,7 +4,8 @@ import java.util.ArrayList;
 Maze theMaze;
 Board theBoard;
 Pacman item1;
-Pellets[] pellet = new Pellets[100];
+//Pellets[][] pellet = new Pellets[100][100];
+Pellets pellet;
 Ghost[] ghosts;
 
 void setup() {
@@ -16,10 +17,11 @@ void setup() {
   //rGhost = loadImage("download.png");
   item1 = new Pacman(7, 7);
   theMaze.addItem( item1 );
-  for(int i=0; i<100;i++){
-    pellet[i] = new Pellets(8,8);
-  }
-  //theMaze.addItem(pellet);
+  //for(int i=0; i<100;i++){
+  //  pellet[i] = new Pellets(8,8);
+  //}
+  pellet= new Pellets(5,5);
+  theMaze.addPellet(pellet);
   
 }  
 
@@ -30,9 +32,11 @@ background(255);
   smooth();
   noStroke();
   
-  for(int i=0; i<pellet.length;i++){
-    pellet[i].show();
-  }
+  //for(int i=0; i<pellet.length;i++){
+  //  for (int j=1; j<pellet.length;j++){
+  //    pellet[i].show();
+  //  }
+  //}
   //image(rGhost,0,0);
 }
 

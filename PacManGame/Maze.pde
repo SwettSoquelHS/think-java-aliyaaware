@@ -26,9 +26,14 @@ public class Maze {
     item.setBounds(rows, cols);
   }
   
-  public void addItem(Pellets food){
-    pellet.add(food); 
+  public void addPellet(Pellets food){
+    //pellet.add(food);
     food.setBounds(rows, cols);
+    for(int i=10; i<20;i++){
+      for (int j=0; j<20;j++){
+        pellet.add(food);
+      }
+    }
   }
 
   public void show() {
@@ -58,6 +63,7 @@ public class Maze {
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
     } 
+    
     for(Pellets food: pellet){
       food.show();
     }
@@ -105,10 +111,10 @@ public class Maze {
     
     beginShape();
     //leftside bottom
-    //line(0,259,0, cellSize*(rows-13));
-    line(157,260,0,259);
-    line(157,260,157,337);
-    line(157,337,0,337);
+    line(cellSize*(rows-11),(rows-14)*cellSize,cellSize*cols,cellSize*(rows-14));
+    line(cellSize*(rows-11),(rows-14)*cellSize,cellSize*(cols-7),cellSize*(rows-9));
+    line(cellSize*(cols-7),cellSize*(rows-9),cellSize*(cols-1),cellSize*(rows-9));
+    line(cellSize*(cols-1),cellSize*(rows-9), cellSize*(cols-1), cellSize*(cols+3));
     //BOTTOM wall
     line(0, cellSize*rows,cellSize*cols, cellSize*(cols+4));
     //right side bottom

@@ -15,7 +15,7 @@ public class Pellets{
         for ( int j=-1; j < 2; j++) {
           pushMatrix();
           fill(0);
-          ellipse(rowId,colId, 100,100);
+          ellipse(rowId,colId, 5,5);
           popMatrix();
           // mouth movement //
         }
