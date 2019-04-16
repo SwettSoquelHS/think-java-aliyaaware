@@ -1,6 +1,3 @@
-
-
-
 public class Maze {
 
   int x_pos, y_pos;  
@@ -9,6 +6,9 @@ public class Maze {
   int[][] layer;
   ArrayList<Pacman> items;
   ArrayList<Pellets> pellet;
+  //Pellets[] dot = new Pellets[1000];
+  //ArrayList<Pellets> dots;
+  //int dotct = 0;
 
   public Maze(int x, int y, int numRows, int numCols, int cellSize ) {
     x_pos = x;
@@ -27,13 +27,13 @@ public class Maze {
   }
   
   public void addPellet(Pellets food){
-    //pellet.add(food);
+    pellet.add(food);
     food.setBounds(rows, cols);
-    for(int i=10; i<20;i++){
-      for (int j=0; j<20;j++){
-        pellet.add(food);
-      }
-    }
+    //for(int i=10; i<20;i++){
+    //  for (int j=0; j<20;j++){
+    //    pellet.add(food);
+    //  }
+    //}
   }
 
   public void show() {
@@ -62,10 +62,6 @@ public class Maze {
         int xAt = item.col()*cellSize;
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
-    } 
-    
-    for(Pellets food: pellet){
-      food.show();
     }
     drawWalls();
     
@@ -153,7 +149,6 @@ public class Maze {
       }
     }
   }
-
 
   public Cell getCell(int xClicked, int yClicked) {
     xClicked = xClicked - x_pos;

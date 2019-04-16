@@ -5,6 +5,7 @@ class Pacman{
    
   float x = 250;
   float y = 250; 
+
   
   protected int colId, rowId;
   
@@ -17,8 +18,8 @@ class Pacman{
   public Pacman(int rowAt, int colAt){
      this.rowId = rowAt;
      this.colId = colAt;
-  }  
- 
+  } 
+
   
   public void setData(int[][] data){
      glyphData = data; 
