@@ -7,12 +7,12 @@ Pellets pellet;
 //ArrayList<Pellets> poop = new ArrayList();
 Ghost[] ghosts;
 
-int radius = 15;
+//int radius = 15;
 int direction = 1;
 int direction2 = 0;
  
-float x = 250;
-float y = 250;
+int x = 250;
+int y = 250;
 
 void setup() {
   size(800, 900);
@@ -21,7 +21,7 @@ void setup() {
   item1 = new Pacman(7, 7);
   theMaze.addItem( item1 );
 
-  pellet= new Pellets((int)random(width), (int)random(height));
+  pellet= new Pellets((int)random(width)*26, (int)random(height)*30);
   theMaze.addPellet(pellet);
   //for (int i=0; i<50; i++) {
   //  Pellets P = new Pellets((int)random(width), (int)random(height));

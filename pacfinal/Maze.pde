@@ -4,6 +4,7 @@ public class Maze {
   int cellSize;
   int rows, cols;
   int[][] layer;
+  int radius;
   ArrayList<Pacman> pac = new ArrayList();
   //ArrayList<Pellets> pellet;
   ArrayList<Pellets> poop = new ArrayList();
@@ -30,10 +31,11 @@ public class Maze {
     for(int i=0; i<cols;i++){    
       for (int j=1; j<rows; j++) {
         food.setBoundsFood(cols, rows);
-        food = new Pellets((int)random(width), (int)random(height));
+        food = new Pellets((int)random(height)*26, (int)random(width));
         poop.add(food);
       }
     }
+
   }
 
   public void show() {
@@ -58,20 +60,31 @@ public class Maze {
         int xAt = pacman.col()*cellSize;
         int yAt = pacman.row()*cellSize;
         pacman.show(xAt, yAt);
-        pacman.getRadius();
+        //radius = pac.getRadius();
     }
     
     for(Pellets food: poop){
        food.show();
     }
+        
     for (int i=0;i<poop.size();i++) {
       Pellets Pn = (Pellets) poop.get(i);
       Pn.show();
-        if (dist(x, y, Pn.x_pos, Pn.y_pos)<radius) {
-          poop.remove(i);
-          radius=radius+1;
+      if (dist(x, y, Pn.x_pos, Pn.y_pos)<25) {
+        poop.remove(i);
+        radius=radius+1;
+      }
+      if (pac.x_pos== Pn.x_pos && pac.y_pos == Pn.y_pos){
       }
     }
+    //for (int i=0;i<poop.size();i++) {
+    //  Pellets Pn = (Pellets) poop.get(i);
+    //  Pn.show();
+    //  if (dist(x, y, Pn.x_pos, Pn.y_pos)<radius) {
+    //    poop.remove(i);
+    //    radius=radius+1;
+    //  }
+    //}
       
     drawWalls();
 

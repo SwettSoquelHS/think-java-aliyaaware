@@ -3,11 +3,14 @@ class Pacman{
   int direction = 1;
   int direction2 = 0;
   int x_pos, y_pos;
-  float x = 250;
-  float y = 250; 
+  //int x = 250;
+  //int y = 250; 
 
   public int getRadius(){ return radius; }
   protected int colId, rowId;
+  public int pacX(){ return x_pos; }
+  
+  public int pacY(){ return y_pos; }
   
   //TODO: This might not be the best way to track
   //but we need to know when we are out of bounds

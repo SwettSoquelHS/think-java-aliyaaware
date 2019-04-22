@@ -37,9 +37,18 @@ public class Pellets{
   
   public int y(){ return y_pos; }
   
+  public void updateCol(int by){
+    if(colId + by <= maxCol /*- glyphData[0].length*/ && colId + by >= 0)
+       colId += by; 
+  }
+  
+  public void updateRow(int by){
+     if(rowId + by <= maxRow /*- glyphData.length*/  && rowId + by >= 0)
+       rowId += by;
+  }
+  
   //void eat_dot_at(float ix, float iy) {
   //  int i = int(ix/20);
-  //  int j = int(iy/20);
   //  poop[i][j].remove();
   //}
   
