@@ -6,6 +6,7 @@ public class Maze {
   int[][] layer;
   int radius;
   ArrayList<Pacman> pac = new ArrayList();
+  //Pacman pac;
   //ArrayList<Pellets> pellet;
   ArrayList<Pellets> poop = new ArrayList();
 
@@ -16,7 +17,7 @@ public class Maze {
     rows = numRows;
     cols = numCols;
     layer = null;
-    pac = new ArrayList<Pacman>();
+    //pac = new ArrayList<Pacman>();
     //pellet = new ArrayList<Pellets>();
   }
 
@@ -35,25 +36,22 @@ public class Maze {
         poop.add(food);
       }
     }
+  }
+  
+  public void removePellet(Pellets food){
+    //pac = pac.get(x_pos);
+    for(int i=0; i<poop.size();i++){    
+        if (dist(x, y, food.x_pos, food.y_pos)< radius){
+          poop.remove(food);
+        }
+      //  poop.remove(food);
+    }
 
   }
 
   public void show() {
     pushMatrix();
     translate(x_pos, y_pos);
-    //for (int j=0; j< rows; j++) {
-    //  for (int i=0; i < cols; i++) {
-    //    int xAt = i*cellSize;
-    //    int yAt = j*cellSize;
-       
-        //fill(100);
-        //stroke(9);
-        //strokeWeight(1);
-        //rect(xAt, yAt, cellSize, cellSize);
-        //drawLayerCell(j, i, xAt, yAt);
-        //drawWalls();  
-      //}
-    //}
     
     //Draw each item on the board
     for(Pacman pacman: pac){
@@ -66,25 +64,24 @@ public class Maze {
     for(Pellets food: poop){
        food.show();
     }
-        
+    
+    
     for (int i=0;i<poop.size();i++) {
       Pellets Pn = (Pellets) poop.get(i);
       Pn.show();
-      if (dist(x, y, Pn.x_pos, Pn.y_pos)<25) {
+      if (dist(x, y, Pn.x_pos, Pn.y_pos)<radius) {
         poop.remove(i);
         radius=radius+1;
       }
-      if (pac.x_pos== Pn.x_pos && pac.y_pos == Pn.y_pos){
-      }
+      //Pacman pacm = (Pacman) pac.get(y_pos);
+      //pacm.show(x_pos, y_pos);
+      ////Pacman y = (Pacman) pac.get(y_pos);
+      ////if (pacm.radius== Pn.x_pos && pacm.radius == Pn.y_pos){
+      //if (dist(pacm.x_pos, pacm.y_pos, Pn.x_pos, Pn.y_pos)== 0){
+      //  poop.remove(i);
+      //}
+
     }
-    //for (int i=0;i<poop.size();i++) {
-    //  Pellets Pn = (Pellets) poop.get(i);
-    //  Pn.show();
-    //  if (dist(x, y, Pn.x_pos, Pn.y_pos)<radius) {
-    //    poop.remove(i);
-    //    radius=radius+1;
-    //  }
-    //}
       
     drawWalls();
 

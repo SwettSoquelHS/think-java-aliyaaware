@@ -1,5 +1,5 @@
 class Pacman{
-  int radius = 25;
+  int radius = 50;
   int direction = 1;
   int direction2 = 0;
   int x_pos, y_pos;
@@ -7,10 +7,8 @@ class Pacman{
   //int y = 250; 
 
   public int getRadius(){ return radius; }
-  protected int colId, rowId;
-  public int pacX(){ return x_pos; }
   
-  public int pacY(){ return y_pos; }
+  protected int colId, rowId;
   
   //TODO: This might not be the best way to track
   //but we need to know when we are out of bounds
@@ -32,9 +30,9 @@ class Pacman{
   
   public int col(){ return colId; }
   
-  public int x(){ return x_pos; }
+  public int x(){ x_pos= rowId; return x_pos; }
   
-  public int y(){ return y_pos; }
+  public int y(){y_pos=colId; return y_pos; }
   
   
   
@@ -74,7 +72,7 @@ class Pacman{
       
       if (keyCode == LEFT) {
       x = x - 10;
-      direction = -1;
+      direction= -1;
       direction2 = 0;
     }
     else if (keyCode == RIGHT) {  
