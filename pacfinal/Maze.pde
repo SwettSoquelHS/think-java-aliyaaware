@@ -17,9 +17,12 @@ public class Maze {
     rows = numRows;
     cols = numCols;
     layer = null;
+    radius = 50;
     //pac = new ArrayList<Pacman>();
     //pellet = new ArrayList<Pellets>();
   }
+  
+   public int getRadius(){ return radius; }
 
   public void addItem(Pacman pacman){
     pac.add(pacman); 
@@ -28,7 +31,6 @@ public class Maze {
   public void addPellet(Pellets food){
     //pellet.add(food);
     //food.setBoundsFood(rows, cols);
-    
     for(int i=0; i<cols;i++){    
       for (int j=1; j<rows; j++) {
         food.setBoundsFood(cols, rows);
@@ -39,17 +41,34 @@ public class Maze {
   }
   
   public void removePellet(Pellets food){
-    //pac = pac.get(x_pos);
+    int pacPos = radius;
     for(int i=0; i<poop.size();i++){    
-        if (dist(x, y, food.x_pos, food.y_pos)< radius){
+        if (dist(x, y, food.x_pos, food.y_pos)< pacPos){
           poop.remove(food);
         }
       //  poop.remove(food);
     }
-
   }
 
   public void show() {
+      //Pacman pacs = (Pacman) pac.get(radius);
+     for (int i=0;i<poop.size();i++) {
+      Pellets Pn = (Pellets) poop.get(i);
+      
+      Pn.show();
+      if (dist(pac.get(rows), pac.get(cols), Pn.x_pos, Pn.y_pos)==0) {
+        poop.remove(i);
+      }
+      //Pacman pacm = (Pacman) pac.get(y_pos);
+      //pacm.show(x_pos, y_pos);
+      ////Pacman y = (Pacman) pac.get(y_pos);
+      ////if (pacm.radius== Pn.x_pos && pacm.radius == Pn.y_pos){
+      //if (dist(pacm.x_pos, pacm.y_pos, Pn.x_pos, Pn.y_pos)== 0){
+      //  poop.remove(i);
+      //}
+
+    }
+    
     pushMatrix();
     translate(x_pos, y_pos);
     
@@ -63,24 +82,6 @@ public class Maze {
     
     for(Pellets food: poop){
        food.show();
-    }
-    
-    
-    for (int i=0;i<poop.size();i++) {
-      Pellets Pn = (Pellets) poop.get(i);
-      Pn.show();
-      if (dist(x, y, Pn.x_pos, Pn.y_pos)<radius) {
-        poop.remove(i);
-        radius=radius+1;
-      }
-      //Pacman pacm = (Pacman) pac.get(y_pos);
-      //pacm.show(x_pos, y_pos);
-      ////Pacman y = (Pacman) pac.get(y_pos);
-      ////if (pacm.radius== Pn.x_pos && pacm.radius == Pn.y_pos){
-      //if (dist(pacm.x_pos, pacm.y_pos, Pn.x_pos, Pn.y_pos)== 0){
-      //  poop.remove(i);
-      //}
-
     }
       
     drawWalls();

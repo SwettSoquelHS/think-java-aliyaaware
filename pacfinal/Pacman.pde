@@ -30,7 +30,7 @@ class Pacman{
   
   public int col(){ return colId; }
   
-  public int x(){ x_pos= rowId; return x_pos; }
+  public void x(){ x_pos= rowId; }
   
   public int y(){y_pos=colId; return y_pos; }
   

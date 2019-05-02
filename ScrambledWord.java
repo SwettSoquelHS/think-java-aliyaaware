@@ -15,14 +15,21 @@ public class ScrambledWord{
 
 	public static String scrambleWord(String str){
 		char[] arr = str.toCharArray();
-		for(int i=1; i<str.length(); i++){
-			if(str.substring(i-1, i).equals("A") && !str.substring(i, i+1).equals("A")){
-				str =  str.substring(0, i-1) + str.substring(i, i+1) + str.substring(i-1, i) + str.substring(i+1);
+		for(int i=1; i<arr.length; i++){
+			if(arr[i]== str.indexOf("A") && !(arr[i+1]==str.indexOf("A"))){
+				arr =  arr[i-1] + arr[i+1] +arr[i];
 				i++;
 			}
 		}
-
 		return str;
+		// for(int i=1; i<str.length(); i++){
+		// 	if(str.substring(i-1, i).equals("A") && !str.substring(i, i+1).equals("A")){
+		// 		str =  str.substring(0, i-1) + str.substring(i, i+1) + str.substring(i-1, i) + str.substring(i+1);
+		// 		i++;
+		// 	}
+		// }
+
+		// return str;
 	}
 
 	// public static ArrayList scrambleOrRemove(String[] wordList){

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 Maze theMaze;
 Pacman item1;
 Pellets pellet;
-//ArrayList<Pellets> poop = new ArrayList();
+ArrayList<Pellets> poop = new ArrayList();
 Ghost[] ghosts;
 
 //int radius = 15;
@@ -36,14 +36,14 @@ background(0);
   theMaze.show();
   smooth();
   noStroke();
-  //for (int i=0;i<poop.size();i++) {
-  //  Pellets Pn = (Pellets) poop.get(i);
-  //  Pn.show();
-  //  //if (dist(x, y, Pn.x, Pn.y)<radius) {
-  //  //  poop.remove(i);
-  //  //  radius=radius+1;
-  //  //}
-  //}
+  for (int i=0;i<poop.size();i++) {
+    Pellets Pn = (Pellets) poop.get(i);
+    Pn.show();
+    if (dist(x, y, Pn.x_pos, Pn.y_pos)<item1.getRadius()) {
+      poop.remove(i);
+      //radius=radius+1;
+    }
+  }
 }
 
 
