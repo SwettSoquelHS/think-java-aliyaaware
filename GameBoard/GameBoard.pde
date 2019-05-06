@@ -12,7 +12,7 @@ int[][] layer = {
 
 void setup() {
   size(1200, 800);
-  int cellSize = 40;
+  int cellSize = 10;
   int boardCols = (width-100)/cellSize;
   int boardRows = (height-100)/cellSize;
   theBoard = new Board(50, 50, boardRows, boardCols, cellSize);

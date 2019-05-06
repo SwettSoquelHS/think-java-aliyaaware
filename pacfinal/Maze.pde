@@ -56,7 +56,7 @@ public class Maze {
       Pellets Pn = (Pellets) poop.get(i);
       
       Pn.show();
-      if (dist(pac.get(rows), pac.get(cols), Pn.x_pos, Pn.y_pos)==0) {
+      if (dist(x, y, Pn.x_pos, Pn.y_pos)==0) {
         poop.remove(i);
       }
       //Pacman pacm = (Pacman) pac.get(y_pos);
@@ -173,30 +173,29 @@ public class Maze {
        
   }
  
+  protected void drawLayerCell(int rowId, int colId, int xPos, int yPos) {
+    if (layer != null) {
+      if (layer.length > rowId) {
+        if (layer[rowId].length > colId) {
+          int cellColor = layer[rowId][colId];
+          fill(cellColor);
+          rect(xPos, yPos, cellSize, cellSize);
+        }
+      }
+    }
+  }
 
-  //protected void drawLayerCell(int rowId, int colId, int xPos, int yPos) {
-  //  if (layer != null) {
-  //    if (layer.length > rowId) {
-  //      if (layer[rowId].length > colId) {
-  //        int cellColor = layer[rowId][colId];
-  //        fill(cellColor);
-  //        rect(xPos, yPos, cellSize, cellSize);
-  //      }
-  //    }
-  //  }
-  //}
+  public Cell getCell(int xClicked, int yClicked) {
+    xClicked = xClicked - x_pos;
+    yClicked = yClicked - y_pos;
 
-  //public Cell getCell(int xClicked, int yClicked) {
-  //  xClicked = xClicked - x_pos;
-  //  yClicked = yClicked - y_pos;
+    int xAt = xClicked/cellSize;
+    int yAt = yClicked/cellSize;
 
-  //  int xAt = xClicked/cellSize;
-  //  int yAt = yClicked/cellSize;
+    return new Cell(yAt, xAt);
+  }
 
-  //  return new Cell(yAt, xAt);
-  //}
-
-  //public void addLayer(int[][] theLayer) {
-  //  this.layer = theLayer;
-  //}
+  public void addLayer(int[][] theLayer) {
+    this.layer = theLayer;
+  }
 }

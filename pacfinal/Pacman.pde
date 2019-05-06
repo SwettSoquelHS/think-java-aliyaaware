@@ -1,4 +1,4 @@
-class Pacman{
+class Pacman extends Maze{
   int radius = 50;
   int direction = 1;
   int direction2 = 0;
@@ -34,43 +34,39 @@ class Pacman{
   
   public int y(){y_pos=colId; return y_pos; }
   
-  
+   void simulate() {
+    int px=x, py=y;
+    if (0==direction) x++;
+    if (1==direction) y++;
+    if (2==direction) x--;
+    if (3==direction) y--;
+    
+  }
   
   public void show(int xAt, int yAt){    
-    //for(int row = 0; row < glyphData.length; row++){
-    //   for(int col = 0; col < glyphData[row].length; col++){
-    //      int fillColor = glyphData[row][col];
-    //      if(fillColor > -1){
-            fill(#FFFF33);
-            noStroke();
-    //        int x = xAt + col*cellSize;
-    //        int y = yAt + row*cellSize;
-    //        rect(x,y,cellSize,cellSize);
-            //ellipse(xAt, yAt, 50, 50);
-           // render(xAt, yAt);
-    //      }
-    //   }
-    //}
-      for ( int i=-1; i < 2; i++) {
-        for ( int j=-1; j < 2; j++) {
-          pushMatrix();
-          translate(xAt + (i * width), yAt + (j*height));
-          if ( direction == -1) { 
-            rotate(PI);
-          }
-          if ( direction2 == 1) { 
-            rotate(HALF_PI);
-          }
-          if ( direction2 == -1) { 
-            rotate( PI + HALF_PI );
-          }
-          arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
-          popMatrix();
-          // mouth movement //
+    fill(#FFFF33);
+    noStroke();
+    for ( int i=-1; i < 2; i++) {
+      for ( int j=-1; j < 2; j++) {
+        pushMatrix();
+        translate(xAt + (i * width), yAt + (j*height));
+        if ( direction == -1) { 
+          rotate(PI);
         }
+        if ( direction2 == 1) { 
+          rotate(HALF_PI);
+        }
+        if ( direction2 == -1) { 
+          rotate( PI + HALF_PI );
+        }
+        arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
+        popMatrix();
+        // mouth movement //
       }
-      
-      if (keyCode == LEFT) {
+    }
+    
+    
+     if (keyCode == LEFT) {
       x = x - 10;
       direction= -1;
       direction2 = 0;
@@ -91,6 +87,7 @@ class Pacman{
       direction2 = 1;
     }
   }
+
   
   public void setBounds(int rows, int cols){
     maxRow = rows;

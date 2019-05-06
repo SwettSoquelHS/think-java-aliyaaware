@@ -2,7 +2,7 @@
 PImage rGhost;
 import java.util.ArrayList;
 Maze theMaze;
-Pacman item1;
+Pacman pac;
 Pellets pellet;
 ArrayList<Pellets> poop = new ArrayList();
 Ghost[] ghosts;
@@ -18,8 +18,8 @@ void setup() {
   size(800, 900);
   int cellSize = 26;
   theMaze = new Maze(50, 50, 30, 26, cellSize);
-  item1 = new Pacman(7, 7);
-  theMaze.addItem( item1 );
+  pac = new Pacman(7, 7);
+  theMaze.addItem( pac );
 
   pellet= new Pellets((int)random(width)*2, (int)random(height)*30);
   theMaze.addPellet(pellet);
@@ -39,7 +39,7 @@ background(0);
   for (int i=0;i<poop.size();i++) {
     Pellets Pn = (Pellets) poop.get(i);
     Pn.show();
-    if (dist(x, y, Pn.x_pos, Pn.y_pos)<item1.getRadius()) {
+    if (dist(pac.getRow(), y, Pn.x_pos, Pn.y_pos)<pac.getRadius()) {
       poop.remove(i);
       //radius=radius+1;
     }
