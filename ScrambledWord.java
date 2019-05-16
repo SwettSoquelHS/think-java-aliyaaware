@@ -8,44 +8,50 @@ public class ScrambledWord{
       for (String word : words)
          System.out.println(word + " becomes " + scrambleWord(word));
 
-     //System.out.println(scrambleOrRemove(words));
+     ArrayList<String> list2 = new ArrayList<String>(List.of("CAN", "ABRACADABRA", "WHOA", "APPLE", "EGGS"));
+     System.out.println(scrambleOrRemove(list2));
 	}
 
 
-
-	public static String scrambleWord(String str){
-		char[] arr = str.toCharArray();
-		for(int i=1; i<arr.length; i++){
-			if(arr[i]== str.indexOf("A") && !(arr[i+1]==str.indexOf("A"))){
-				arr =  arr[i-1] + arr[i+1] +arr[i];
-				i++;
+	public static String scrambleWord(String word){
+		int current = 0;
+		String result="";
+		while (current < word.length()-1)
+		{
+			if (word.substring(current,current+1).equals("A") && !word.substring(current+1,current+2).equals("A"))
+			{
+				result += word.substring(current+1,current+2);
+				result += "A";
+				current += 2;
+			}else 
+			{
+				result += word.substring(current,current+1);
+				current++;
 			}
 		}
-		return str;
-		// for(int i=1; i<str.length(); i++){
-		// 	if(str.substring(i-1, i).equals("A") && !str.substring(i, i+1).equals("A")){
-		// 		str =  str.substring(0, i-1) + str.substring(i, i+1) + str.substring(i-1, i) + str.substring(i+1);
-		// 		i++;
-		// 	}
-		// }
-
-		// return str;
+		if (current < word.length()){
+			result += word.substring(current);
+		}
+		return result;
 	}
 
-	// public static ArrayList scrambleOrRemove(String[] wordList){
-	// 	ArrayList copy = new ArrayList<String>();
-	// 	for (String word: wordList){
-	// 		copy.add(scrambleWord(word));
-	// 		// char[] chars = word.toCharArray();
-	// 		// char[] oldChar = word.copyValueOf(chars);
-	// 		// if (chars.equals(word.copyValueOf(word))){
-	// 		// 	copy.remove(word);
-	// 		// }
-	// 	}
 
-	// 	//String[] copy = wordList.copyValueOf(scrambleWord(wordList));
-	// 	return copy;
-	// }
+	public static List scrambleOrRemove(List<String> wordList){
+		//ArrayList copy = new ArrayList<String>();
+		int index = 0;
+		while (index < wordList.size()){
+			String word=wordList.get(index);
+			String scrambled=scrambleWord(word);
+			if (word.equals(scrambled)){
+				wordList.remove(index);
+			}
+			else {
+				wordList.set(index,scrambled);
+				index++;
+			}
+		}
+		return wordList;
+	}
 
 }
 
