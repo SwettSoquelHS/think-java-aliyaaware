@@ -24,8 +24,8 @@ void setup() {
   theBoard.addItem( item1 );
   theBoard.addLayer( layer );
   
-  pac = new Pacman(1,1);
-  pac.setData(item1Data);
+  pac = new Pacman(7,7);
+  //pac.setData(item1Data);
   theBoard.addItem(pac);
   
   //maze = new Maze(7,7);

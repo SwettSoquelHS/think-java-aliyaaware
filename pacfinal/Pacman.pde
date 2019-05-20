@@ -31,7 +31,7 @@ class Pacman extends BoardItem{
         }
         arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
         popMatrix();
-        // mouth movement //  
+        // mouth movement //
       }
     }
     
@@ -57,11 +57,9 @@ class Pacman extends BoardItem{
     }
     
   }
-  
-  
-  
 }
-
+  
+ 
 
 
 //class Pacman extends BoardItem{
@@ -155,18 +153,18 @@ class Pacman extends BoardItem{
 //  }
 
   
-//  public void setBounds(int rows, int cols){
-//    maxRow = rows;
-//    maxCol = cols;
-//  }
+  //public void setBounds(int rows, int cols){
+  //  maxRow = rows;
+  //  maxCol = cols;
+  //}
   
-//  public void updateCol(int by){
-//    if(colId + by <= maxCol /*- glyphData[0].length*/ && colId + by >= 0)
-//       colId += by; 
-//  }
+  //public void updateCol(int by){
+  //  if(colId + by <= maxCol /*- glyphData[0].length*/ && colId + by >= 0)
+  //     colId += by; 
+  //}
   
-//  public void updateRow(int by){
-//     if(rowId + by <= maxRow /*- glyphData.length*/  && rowId + by >= 0)
-//       rowId += by;
-//  }
+  //public void updateRow(int by){
+  //   if(rowId + by <= maxRow /*- glyphData.length*/  && rowId + by >= 0)
+  //     rowId += by;
+  //}
 //}

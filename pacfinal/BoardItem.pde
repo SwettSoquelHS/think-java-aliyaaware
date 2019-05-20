@@ -9,9 +9,12 @@ public class BoardItem {
   
   protected int[][] glyphData;
   
+  ArrayList<Pacman> pac = new ArrayList();
+  
   public BoardItem(int rowAt, int colAt){
      this.rowId = rowAt;
      this.colId = colAt;
+     pac = new ArrayList<Pacman>();
   }
   
   public void setData(int[][] data){
@@ -23,17 +26,29 @@ public class BoardItem {
   public int col(){ return colId; }
   
   public void show(int xAt, int yAt, int cellSize){    
-    for(int row = 0 ; row < glyphData.length; row++){
-       for(int col = 0; col < glyphData[row].length; col++){
-          int fillColor = glyphData[row][col];
-          if(fillColor != -1){
-            fill(fillColor);
-            int x = xAt + col*cellSize;
-            int y = yAt + row*cellSize;
-            rect(x,y,cellSize,cellSize);
-          }
-       }
+    //for(int row = 0 ; row < glyphData.length; row++){
+    //   for(int col = 0; col < glyphData[row].length; col++){
+    //      int fillColor = glyphData[row][col];
+    //      if(fillColor != -1){
+    //        fill(0);
+    //        int x = xAt + col*cellSize;
+    //        int y = yAt + row*cellSize;
+    //        rect(x,y,cellSize,cellSize);
+    //      }
+    //   }
+    //}
+    
+    for(Pacman pacman: pac){
+      xAt = pacman.col()*cellSize;
+      yAt = pacman.row()*cellSize;
+      pacman.show(xAt, yAt, cellSize);
+      //radius = pac.getRadius();
     }
+  }
+  
+  public void addItem(Pacman pacman){
+    pacman.setBounds(maxRow, maxCol);
+    pac.add(pacman);
   }
   
   public void setBounds(int rows, int cols){
