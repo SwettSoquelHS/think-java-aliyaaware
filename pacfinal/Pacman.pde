@@ -1,9 +1,9 @@
 class Pacman extends BoardItem{
   
-  private float rotateAngle;
+  private int rotateAngle;
   private int direction = 1;
   private int direction2 = 0;
-  int radius = 50;
+  int radius = 25;
   int x = 250; 
   int y = 250;
   
@@ -12,14 +12,16 @@ class Pacman extends BoardItem{
     rotateAngle=0;
   }
   
-  
   public void show(int xAt, int yAt, int cellsize){
     fill(#FFFF33);
     noStroke();
     for ( int i=-1; i < 2; i++) {
-      for ( int j=-1; j < 2; j++) {
+      for ( int j=-1; j < 2; j++) {   
+        
         pushMatrix();
-        translate(xAt + (i * width), yAt + (j*height));
+       // translate(xAt + (i * width), yAt + (j*height));
+         translate(xAt+(cellsize/2) , yAt+(cellsize/2) );
+         //rect(0,0,cellsize,cellsize);
         if ( direction == -1) { 
           rotate(PI);
         }
@@ -29,7 +31,9 @@ class Pacman extends BoardItem{
         if ( direction2 == -1) { 
           rotate( PI + HALF_PI );
         }
-        arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
+        arc(0, 0, radius, radius, 
+        map((millis() % 500), 0, 500, 0, 0.52), 
+        map((millis() % 500), 0, 500, TWO_PI, 5.76) );
         popMatrix();
         // mouth movement //
       }

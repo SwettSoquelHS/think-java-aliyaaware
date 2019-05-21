@@ -5,6 +5,7 @@ public class Board {
   int rows, cols;
   int[][] layer;
   ArrayList<BoardItem> items;
+  ArrayList<Pacman> pac = new ArrayList();
 
   public Board(int x, int y, int numRows, int numCols, int cellSize ) {
     x_pos = x;
@@ -14,11 +15,16 @@ public class Board {
     cols = numCols;
     layer = null;
     items = new ArrayList<BoardItem>();
+    pac = new ArrayList<Pacman>();
   }
 
   public void addItem(BoardItem item){
     items.add(item); 
     item.setBounds(rows, cols);
+  }
+  public void addItem(Pacman pacman){
+    pac.add(pacman);
+    pacman.setBounds(rows, cols);
   }
 
   public void show() {
@@ -44,7 +50,14 @@ public class Board {
         int xAt = item.col()*cellSize;
         int yAt = item.row()*cellSize;
         item.show(xAt, yAt, cellSize);      
-    }    
+    }
+    
+    for(Pacman pacman: pac){
+      int xAt = (pacman.col()+1)*cellSize;
+      int yAt = (pacman.row()+1)*cellSize;
+      pacman.show(xAt, yAt, cellSize);
+      //radius = pac.getRadius();
+    }
 
     popMatrix();
   }  
@@ -55,6 +68,7 @@ public class Board {
         if (layer[rowId].length > colId) {
           int cellColor = layer[rowId][colId];
           fill(cellColor);
+          stroke(1);
           rect(xPos, yPos, cellSize, cellSize);
         }
       }
