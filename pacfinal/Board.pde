@@ -4,6 +4,7 @@ public class Board {
   int cellSize;
   int rows, cols;
   int[][] layer;
+  int[][] mazeLayout;
   ArrayList<BoardItem> items;
   ArrayList<Pacman> pac = new ArrayList();
 
@@ -14,6 +15,7 @@ public class Board {
     rows = numRows;
     cols = numCols;
     layer = null;
+    mazeLayout = null;
     items = new ArrayList<BoardItem>();
     pac = new ArrayList<Pacman>();
   }
@@ -70,6 +72,24 @@ public class Board {
           fill(cellColor);
           stroke(1);
           rect(xPos, yPos, cellSize, cellSize);
+        }
+      }
+    }
+  }
+  
+  protected void drawMazeLayout(int rowId, int colId, int xPos, int yPos){
+    if (mazeLayout != null) {
+      if (mazeLayout.length > rowId) {
+        if (mazeLayout[rowId].length > colId) {
+          int cellwall = 245;
+          if(mazeLayout[rowId][colId]==1){
+            fill(cellwall);
+          }else if(mazeLayout[rowId][colId]==2){
+            fill(3);
+          }
+          fill(0);
+          stroke(1);
+          //rect(xPos, yPos, cellSize, cellSize);
         }
       }
     }
