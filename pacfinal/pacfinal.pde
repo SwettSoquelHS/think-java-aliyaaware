@@ -2,10 +2,12 @@ Board theBoard;
 BoardItem item1;
 Pacman pac;
 Maze maze;
+Pellets pellet;
   int direction = 1;
   int direction2 = 0;
   int x = 250; 
   int y = 250; 
+color blue;
 
 //int[][] layer = {
 //  {0, 255, 125, 9, 2, 15, 24, 45, 150}, 
@@ -35,7 +37,7 @@ int[][] mazeLayout= {
      {1,1,1,1,1,1,8,1,1,8,8,8,8,8,8,8,8,8,8,1,1,8,1,1,1,1,1,1},//12
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//13
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//14
-     {3,3,3,3,3,3,3,3,8,8,1,1,1,1,1,1,1,1,8,8,8,3,3,3,3,3,3,3},//15
+     {3,3,3,3,3,3,8,8,8,8,1,1,1,1,1,1,1,1,8,8,8,8,3,3,3,3,3,3},//15
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//16
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//17
      {1,1,1,1,1,1,8,1,1,8,8,8,8,8,8,8,8,8,8,1,1,8,1,1,1,1,1,1},//18
@@ -66,26 +68,40 @@ void setup() {
     {-1, 0, -1}};
   item1.setData(item1Data);
   //theBoard.addItem( item1 );
+  pellet = new Pellets(x, y);
+  item1.setData(item1Data);
   
-  for(int row=0; row < mazeLayout.length; row++){
-      for (int col = 0; col< mazeLayout[row].length; col++){
-        if(mazeLayout[row][col]==1){
-          fill(100,0,0);
-        }
-        fill(#8F2CB7);
-      }
-    }
+  //drawing them maze
+  //colorMode(RGB, 360, 100, 100);
+  //blue = color(0, 50, 255);
+  //int wall =0;
+  //for(int row=0; row < mazeLayout.length; row++){
+  //    for (int col = 0; col< mazeLayout[row].length; col++){
+  //      if(mazeLayout[row][col]==1){
+  //        mazeLayout[row][col]= blue;
+  //      }else if(mazeLayout[row][col]==8){
+  //        pellet.show(row, col, 0);
+  //        mazeLayout[row][col]= 0;
+  //        //theBoard.addItem(pellet);
+  //      }else if(mazeLayout[row][col]==3){
+  //        mazeLayout[row][col]= 0;
+  //      }
+  //      fill(#8F2CB7);
+  //    }
+  //  }
   theBoard.addLayer( mazeLayout );
   
-  pac = new Pacman(7,7);
+  //drawing 
+  pac = new Pacman(1,1);
   pac.setData(item1Data);
   theBoard.addItem(pac);
-  
 }
 
 void draw() {
   background(255);
   theBoard.show();
+  
+  
 }
 
     
@@ -111,6 +127,10 @@ void keyPressed(){
       direction2 = -1;
       item1.updateRow(-1);
       pac.updateRow(direction2); 
+      int r =pac.row()-1;
+      int i = pac.col();
+      //int lInfo = board.getLayerInf(r,i);
+      
        
     } else if (keyCode == DOWN) {
       MOVE_DOWN = true;
