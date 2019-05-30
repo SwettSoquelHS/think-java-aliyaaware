@@ -5,8 +5,8 @@ public class Board {
   int rows, cols;
   int[][] layer;
   int[][] mazeLayout;
-  ArrayList<BoardItem> items;
-  ArrayList<Pacman> pac = new ArrayList();
+  ArrayList<BoardItem> items;;
+  //ArrayList<Maze> mazeLayout = new ArrayList();
 
   public Board(int x, int y, int numRows, int numCols, int cellSize ) {
     x_pos = x;
@@ -17,7 +17,6 @@ public class Board {
     layer = null;
     mazeLayout = null;
     items = new ArrayList<BoardItem>();
-    pac = new ArrayList<Pacman>();
   }
 
   public void addItem(BoardItem item){
@@ -25,9 +24,14 @@ public class Board {
     item.setBounds(rows, cols);
   }
   public void addItem(Pacman pacman){
-    pac.add(pacman);
-    pacman.setBounds(rows, cols);
+    items.add(pacman);
+    pacman.setBounds(rows+2, cols+2);
   }
+   public void addItem(Maze maze){
+    items.add(maze);
+    maze.setBounds(rows, cols);
+  }
+ 
 
   public void show() {
     pushMatrix();
@@ -44,6 +48,8 @@ public class Board {
         fill(255);
         rect(xAt, yAt, cellSize, cellSize);
         drawLayerCell(j, i, xAt, yAt);
+        fill(30);
+        drawMazeLayout(j, i, xAt, yAt);
       }
     }
     
@@ -54,12 +60,9 @@ public class Board {
         item.show(xAt, yAt, cellSize);      
     }
     
-    for(Pacman pacman: pac){
-      int xAt = (pacman.col()+1)*cellSize;
-      int yAt = (pacman.row()+1)*cellSize;
-      pacman.show(xAt, yAt, cellSize);
-      //radius = pac.getRadius();
-    }
+    //for(Maze maze: mazeLayout){
+    //  maze.show();
+    //}
 
     popMatrix();
   }  
@@ -79,19 +82,15 @@ public class Board {
   
   protected void drawMazeLayout(int rowId, int colId, int xPos, int yPos){
     if (mazeLayout != null) {
-      if (mazeLayout.length > rowId) {
-        if (mazeLayout[rowId].length > colId) {
-          int cellwall = 245;
-          if(mazeLayout[rowId][colId]==1){
-            fill(cellwall);
-          }else if(mazeLayout[rowId][colId]==2){
-            fill(3);
+      for(int row=0; row < mazeLayout.length; row++){
+        for (int col = 0; col< mazeLayout[row].length; col++){
+          if(mazeLayout[row][col]==1){
+            fill(299);
           }
-          fill(0);
-          stroke(1);
-          //rect(xPos, yPos, cellSize, cellSize);
+          fill(0,0,100);
         }
       }
+      rect(xPos, yPos, cellSize, cellSize);
     }
   }
 
@@ -108,5 +107,8 @@ public class Board {
 
   public void addLayer(int[][] theLayer) {
     this.layer = theLayer;
+  }
+  public void addMazeLayer(int[][] theLayout) {
+    this.mazeLayout = theLayout;
   }
 }

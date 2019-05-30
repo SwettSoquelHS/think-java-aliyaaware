@@ -9,7 +9,7 @@ public class BoardItem {
   
   protected int[][] glyphData;
   
- ArrayList<Pacman> pac = new ArrayList();
+ //ArrayList<Pacman> pac = new ArrayList();
     
   public BoardItem(int rowAt, int colAt){
      this.rowId = rowAt;
@@ -38,12 +38,6 @@ public class BoardItem {
        }
     }
     
-    //for(Pacman pacman: pac){
-    //  xAt = pacman.col()*cellSize-1;
-    //  yAt = pacman.row()*cellSize;
-    //  pacman.show(xAt, yAt, cellSize);
-    //  //radius = pac.getRadius();
-    //}
   }
   
     
