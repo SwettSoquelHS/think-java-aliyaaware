@@ -31,6 +31,9 @@ public class Board {
   public void addItem(Pellets pellet){
     items.add(pellet);
     pellet.setBounds(rows, cols);
+    //if(pac.getLayerInfo(rows, cols)==pellet.getLayerInfo(rows, cols)){
+    //  items.remove(pellet);
+    //}
   }
  
   public void show() {
@@ -58,12 +61,11 @@ public class Board {
     for(BoardItem item: items){
         int xAt = item.col()*cellSize;
         int yAt = item.row()*cellSize;
-        item.show(xAt, yAt, cellSize);      
+        item.show(xAt, yAt, cellSize);
+        //if(pac.getLayerInfo(rows, cols)==pellet.getLayerInfo(rows, cols)){
+        //  items.remove(pellet);
+        //}
     }
-    
-    //for(Maze maze: mazeLayout){
-    //  maze.show();
-    //}
 
     popMatrix();
   }  
@@ -99,11 +101,12 @@ public class Board {
             fill(255);
             pellet.show(xPos, yPos);
             //ellipse(xPos+12, yPos+10, 10, 10);
-          }
-          
+          }           
         }
       }
     }
+    
+    //change 8 to 7 when pac man enters
     
     
     //rect(xPos, yPos, cellSize, cellSize);
@@ -135,13 +138,7 @@ public class Board {
     //}
   }
   
-  public int getLayerInfo(int row, int col){
-      for(int r =0;r<mazeLayout.length;r++){
-        for(int c=0; c<mazeLayout.length; c++){
-          r=row;
-          c=col;
-        }
-      }
+  public int getLayerInfo(int row, int col){ //<>//
       return mazeLayout[row][col];
   }
 

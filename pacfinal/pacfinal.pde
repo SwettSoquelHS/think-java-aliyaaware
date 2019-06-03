@@ -3,6 +3,7 @@ BoardItem item1;
 Pacman pac;
 Maze maze;
 Pellets pellet;
+ArrayList<BoardItem> items =new ArrayList<BoardItem>();
   int direction = 1;
   int direction2 = 0;
   int x = 250; 
@@ -60,7 +61,7 @@ void setup() {
   size(800, 900);
   int cellSize = 26;
   theBoard = new Board(50, 50, 30, 28, cellSize);
-
+  
   item1 = new BoardItem(2, 5);
   int[][] item1Data = 
    {{-1, 0, -1}, 
@@ -77,6 +78,9 @@ void setup() {
   //int wall =0;
   //for(int row=0; row < mazeLayout.length; row++){
   //    for (int col = 0; col< mazeLayout[row].length; col++){
+  //      if(pac.getLayerInfo(row, col)==pellet.getLayerInfo(row, col)){
+  //        items.remove(pellet);
+  //      }
   //      if(mazeLayout[row][col]==1){
   //        mazeLayout[row][col]= blue;
   //      }else if(mazeLayout[row][col]==8){
@@ -87,9 +91,12 @@ void setup() {
   //        mazeLayout[row][col]= 0;
   //      }
   //      fill(#8F2CB7);
-  //    }
-  //  }
+    //  }
+    //}
   theBoard.addLayer( mazeLayout );
+  //if(pac.getLayerInfo(rows, cols)==pellet.getLayerInfo(rows, cols)){
+  //  items.remove(pellet);
+  //}
   
   //drawing 
   pac = new Pacman(1,1);
@@ -115,28 +122,31 @@ void keyPressed(){
       pac.updateCol(direction);
         
     } else if ( keyCode == RIGHT ) {
-      MOVE_RIGHT = true;
-      direction = 1;
-      direction2 = 0;
-      item1.updateCol(1);
-      pac.updateCol(direction);
+      int r =pac.row();
+      int i = pac.col()+1;
+      int lInfo = theBoard.getLayerInfo(r,i);
+      if(lInfo!=1){
+        MOVE_RIGHT = true;
+        direction = 1;
+        direction2 = 0;
+        item1.updateCol(1);
+        pac.updateCol(direction);
+      }
+      MOVE_RIGHT = false;
          
     } else if (keyCode == UP) {
-      MOVE_UP = true;
-      direction = 0;
-      direction2 = -1;
-      item1.updateRow(-1);
-      pac.updateRow(direction2); 
       int r =pac.row()-1;
       int i = pac.col();
       int lInfo = theBoard.getLayerInfo(r,i);
-      if(lInfo==1){
-        MOVE_UP = false;      
-      }else{
+      println("get" + lInfo);
+      if(lInfo!=1){
         MOVE_UP = true;
+        direction = 0;
+        direction2 = -1;
+        item1.updateRow(-1);
+        pac.updateRow(direction2);       
       }
-      
-       
+      MOVE_UP = false;
     } else if (keyCode == DOWN) {
       MOVE_DOWN = true;
       direction = 0;
