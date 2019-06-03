@@ -6,7 +6,7 @@ public class Board {
   //int[][] layer;
   color blue;
   int[][] mazeLayout;
-  ArrayList<BoardItem> items;;
+  ArrayList<BoardItem> items;
   //ArrayList<Maze> mazeLayout = new ArrayList();
 
   public Board(int x, int y, int numRows, int numCols, int cellSize ) {
@@ -27,12 +27,7 @@ public class Board {
   public void addItem(Pacman pacman){
     items.add(pacman);
     pacman.setBounds(rows+2, cols+2);
-  }
-   public void addItem(Maze maze){
-    items.add(maze);
-    maze.setBounds(rows, cols);
-  }
-  
+  }  
   public void addItem(Pellets pellet){
     items.add(pellet);
     pellet.setBounds(rows, cols);
@@ -50,8 +45,8 @@ public class Board {
         //fill( ? )
         //stroke( ? ) //border color
         //strokeWeight( ? ) // thickness of cell border
-        fill(255);
-        noStroke();
+      //  fill(255);
+        //noStroke();
         rect(xAt, yAt, cellSize, cellSize);
         drawLayerCell(j, i, xAt, yAt);
         //fill(30);
@@ -76,30 +71,42 @@ public class Board {
   protected void drawLayerCell(int rowId, int colId, int xPos, int yPos) {
     colorMode(RGB, 360, 100, 100);
     blue = color(0, 50, 255);
+    Pellets pellet = new Pellets(rowId, colId);
     
     if (mazeLayout != null) {
       if (mazeLayout.length > rowId) {
         if (mazeLayout[rowId].length > colId) {
-      //for(int row=0; row < mazeLayout.length; row++){
-      //  for (int col = 0; col< mazeLayout[row].length; col++){
+      //for( rowId=0; rowId < mazeLayout.length; rowId++){
+      //  for ( colId = 0; colId< mazeLayout[rowId].length; colId++){
           int cellColor = mazeLayout[rowId][colId];
           if(cellColor == 8){
             cellColor = blue;
             rect(xPos, yPos, cellSize, cellSize);
-          }else if(cellColor==8){
-            fill(100);
-            //theBoard.addItem(pellet);
+          }else if(cellColor==1){
+            cellColor=0;
             rect(xPos, yPos, cellSize, cellSize);
           }else if(cellColor==3){
-            fill(255);
+            cellColor = blue;
+            rect(xPos, yPos, cellSize, cellSize);
+          }else if(cellColor==50){
+            cellColor = blue;
             rect(xPos, yPos, cellSize, cellSize);
           }
-          fill(#8F2CB7);
+          fill(cellColor);
+          rect(xPos, yPos, cellSize, cellSize);
+          
+          if(cellColor== blue){
+            fill(255);
+            pellet.show(xPos, yPos);
+            //ellipse(xPos+12, yPos+10, 10, 10);
+          }
+          
         }
       }
-      
     }
-    rect(xPos, yPos, cellSize, cellSize);
+    
+    
+    //rect(xPos, yPos, cellSize, cellSize);
     
     
     
@@ -127,7 +134,16 @@ public class Board {
     //  }
     //}
   }
-
+  
+  public int getLayerInfo(int row, int col){
+      for(int r =0;r<mazeLayout.length;r++){
+        for(int c=0; c<mazeLayout.length; c++){
+          r=row;
+          c=col;
+        }
+      }
+      return mazeLayout[row][col];
+  }
 
   public Cell getCell(int xClicked, int yClicked) {
     xClicked = xClicked - x_pos;

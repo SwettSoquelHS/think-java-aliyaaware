@@ -129,7 +129,12 @@ void keyPressed(){
       pac.updateRow(direction2); 
       int r =pac.row()-1;
       int i = pac.col();
-      //int lInfo = board.getLayerInf(r,i);
+      int lInfo = theBoard.getLayerInfo(r,i);
+      if(lInfo==1){
+        MOVE_UP = false;      
+      }else{
+        MOVE_UP = true;
+      }
       
        
     } else if (keyCode == DOWN) {

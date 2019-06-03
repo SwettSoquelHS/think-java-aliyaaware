@@ -3,10 +3,10 @@ public class Pellets extends BoardItem{
   public Pellets(int rowAt, int colAt) {
     super(rowAt, colAt);
   }
-  public void show(int xAt, int yAt, int cellSize){
+  public void show(int xAt, int yAt){
     pushMatrix();
     fill(255);
-    ellipse(xAt,yAt, 10,10);
+    ellipse(xAt+12,yAt+10, 10,10);
     popMatrix();
   }
   
