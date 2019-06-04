@@ -38,7 +38,7 @@ int[][] mazeLayout= {
      {1,1,1,1,1,1,8,1,1,8,8,8,8,8,8,8,8,8,8,1,1,8,1,1,1,1,1,1},//12
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//13
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//14
-     {3,3,3,3,3,3,8,8,8,8,1,1,1,1,1,1,1,1,8,8,8,8,3,3,3,3,3,3},//15
+     {1,3,3,3,3,3,8,8,8,8,1,1,1,1,1,1,1,1,8,8,8,8,3,3,3,3,3,1},//15
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//16
      {1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1,1,1,8,1,1,8,1,1,1,1,1,1},//17
      {1,1,1,1,1,1,8,1,1,8,8,8,8,8,8,8,8,8,8,1,1,8,1,1,1,1,1,1},//18
@@ -115,11 +115,16 @@ void draw() {
 void keyPressed(){
   if (key == CODED) {
     if (keyCode == LEFT) {
-      MOVE_LEFT = true;
-      direction= -1;
-      direction2 = 0;
-      item1.updateCol(-1);
-      pac.updateCol(direction);
+      int r =pac.row();
+      int i = pac.col()-1;
+      int lInfo = theBoard.getLayerInfo(r,i);
+      if(lInfo!=1){
+        MOVE_LEFT = true;
+        direction= -1;
+        direction2 = 0;
+        item1.updateCol(-1);
+        pac.updateCol(direction);
+      }
         
     } else if ( keyCode == RIGHT ) {
       int r =pac.row();
@@ -148,11 +153,16 @@ void keyPressed(){
       }
       MOVE_UP = false;
     } else if (keyCode == DOWN) {
-      MOVE_DOWN = true;
-      direction = 0;
-      direction2 = 1;
-      item1.updateRow(1);
-      pac.updateRow(direction2);
+      int r =pac.row()+1;
+      int i = pac.col();
+      int lInfo = theBoard.getLayerInfo(r,i);
+      if(lInfo!=1){
+        MOVE_DOWN = true;
+        direction = 0;
+        direction2 = 1;
+        item1.updateRow(1);
+        pac.updateRow(direction2);
+      }  
     }
   }
 
@@ -166,54 +176,3 @@ boolean MOVE_RIGHT; //User is pressing ->
 boolean MOVE_UP; //User is pressing ^ arrow
 boolean MOVE_DOWN;
 boolean SPACE_BAR;  
-
-
-
-// pac man
-//PImage rGhost;
-//import java.util.ArrayList;
-//Maze theMaze;
-//Pacman pac;
-//Pellets pellet;
-//ArrayList<Pellets> poop = new ArrayList();
-//Ghost[] ghosts;
-
-////int radius = 15;
-//int direction = 1;
-//int direction2 = 0;
- 
-//int x = 250;
-//int y = 250;
-
-//void setup() {
-//  size(800, 900);
-//  int cellSize = 26;
-//  theMaze = new Maze(50, 50, 30, 26, cellSize);
-//  pac = new Pacman(7, 7);
-//  theMaze.addItem( pac );
-
-//  pellet= new Pellets((int)random(width)*2, (int)random(height)*30);
-//  theMaze.addPellet(pellet);
-//  //for (int i=0; i<50; i++) {
-//  //  Pellets P = new Pellets((int)random(width), (int)random(height));
-//  //  poop.add(P);
-//  //}
-  
-//}  
-
-
-//void draw() {
-//background(0);
-//  theMaze.show();
-//  smooth();
-//  noStroke();
-//  for (int i=0;i<poop.size();i++) {
-//    Pellets Pn = (Pellets) poop.get(i);
-//    Pn.show();
-//    if (dist(pac.getRow(), y, Pn.x_pos, Pn.y_pos)<pac.getRadius()) {
-//      poop.remove(i);
-//      //radius=radius+1;
-//    }
-//  }
-//}   
-    
