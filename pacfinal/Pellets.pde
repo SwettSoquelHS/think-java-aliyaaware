@@ -1,16 +1,14 @@
 public class Pellets extends BoardItem{
-  
+  //color yellow;
   public Pellets(int rowAt, int colAt) {
     super(rowAt, colAt);
   }
   public void show(int xAt, int yAt){
     pushMatrix();
-    fill(255);
+    fill(#FFFF33);
     ellipse(xAt+12,yAt+10, 10,10);
     popMatrix();
-    //if(pac.getLayerInfo(xAt, yAt)==pellet.getLayerInfo(xAt, yAt)){
-    //  theBoard.remove(pellet);
-    //}
+
   }
   
   public int getLayerInfo(int row, int col){

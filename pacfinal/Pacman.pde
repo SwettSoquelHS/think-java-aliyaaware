@@ -6,10 +6,45 @@ class Pacman extends BoardItem{
   int radius = 25;
   int x = 250; 
   int y = 250;
+  int seconds = 10;
+  boolean power = false;
   
   public Pacman(int rowAt, int colAt) {
     super(rowAt, colAt);
     rotateAngle=0;
+  }
+  
+  public void is_super(int xAt, int yAt, int cellsize){
+    while(seconds!=0){
+      fill(0,0,0);
+    noStroke();
+    for ( int i=-1; i < 2; i++) {
+      for ( int j=-1; j < 2; j++) {   
+        
+        pushMatrix();
+        
+       // translate(xAt + (i * width), yAt + (j*height));
+         translate(xAt+(cellsize/2) , yAt+(cellsize/2) );
+         //rect(0,0,cellsize,cellsize);
+        if ( direction == -1) { 
+          rotate(PI);
+        }
+        if ( direction2 == 1) { 
+          rotate(HALF_PI);
+        }
+        if ( direction2 == -1) { 
+          rotate( PI + HALF_PI );
+        }
+        arc(0, 0, radius, radius, 
+        map((millis() % 500), 0, 500, 0, 0.52), 
+        map((millis() % 500), 0, 500, TWO_PI, 5.76) );
+        popMatrix();
+        // mouth movement //
+      }
+    }
+      power = true;
+      seconds--;
+    }
   }
   
   public int getLayerInfo(int row, int col){
@@ -17,12 +52,14 @@ class Pacman extends BoardItem{
   }
   
   public void show(int xAt, int yAt, int cellsize){
+    
     fill(#FFFF33);
     noStroke();
     for ( int i=-1; i < 2; i++) {
       for ( int j=-1; j < 2; j++) {   
         
         pushMatrix();
+        
        // translate(xAt + (i * width), yAt + (j*height));
          translate(xAt+(cellsize/2) , yAt+(cellsize/2) );
          //rect(0,0,cellsize,cellsize);

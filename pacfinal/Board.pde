@@ -6,6 +6,8 @@ public class Board {
   //int[][] layer;
   color blue;
   color blue2;
+  int count =0;
+  boolean power = false;
   int[][] mazeLayout;
   ArrayList<BoardItem> items;
   //ArrayList<Maze> mazeLayout = new ArrayList();
@@ -76,7 +78,7 @@ public class Board {
     blue = color(0, 50, 255);
     blue2 = color(0,51,255);
     Pellets pellet = new Pellets(rowId, colId);
-    
+
     if (mazeLayout != null) {
       if (mazeLayout.length > rowId) {
         if (mazeLayout[rowId].length > colId) {
@@ -86,7 +88,7 @@ public class Board {
           if(cellColor == 8){
             cellColor = blue;
             rect(xPos, yPos, cellSize, cellSize);
-          }else if (cellColor==7){
+          }else if (cellColor==7|| cellColor ==10){
             cellColor = blue2;
             rect(xPos, yPos, cellSize, cellSize);
           }else if(cellColor==1){
@@ -96,24 +98,33 @@ public class Board {
             cellColor = blue;
             rect(xPos, yPos, cellSize, cellSize);
           }else if(cellColor==50){
-            cellColor = blue;
+            fill(blue2);
+            //ellipse(xPos+12, yPos+10, 10, 10);
             rect(xPos, yPos, cellSize, cellSize);
+            power= true;
           }
           fill(cellColor);
           rect(xPos, yPos, cellSize, cellSize);
           
           if(cellColor== blue){
-            fill(255);
             pellet.show(xPos, yPos);
             //ellipse(xPos+12, yPos+10, 10, 10);
           }
-          if (cellColor==7){
+          if(cellColor==50){
+            fill(blue2);
+            rect(xPos, yPos, cellSize, cellSize);
+            fill(225);
+            ellipse(xPos+12, yPos+10, 20, 20);
+            //pac.is_super();
+          }
+          if (cellColor==7 || cellColor ==10){
             cellColor = blue;
           }
         }
       }
-    }  
-   
+    } 
+    //fill(0);
+    //rect(100,100,100,100);
   }
   
   public int getLayerInfo(int row, int col){ //<>//

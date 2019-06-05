@@ -8,7 +8,7 @@ public class ScrambledWord{
       for (String word : words)
          System.out.println(word + " becomes " + scrambleWord(word));
 
-     List<String> list2 = new ArrayList<>(List.of("CAN", "ABRACADABRA", "WHOA", "APPLE", "EGGS"));
+     ArrayList<String> list2 = new ArrayList<>(List.of("CAN", "ABRACADABRA", "WHOA", "APPLE", "EGGS"));
      System.out.println(scrambleOrRemove(list2));
 	}
 
