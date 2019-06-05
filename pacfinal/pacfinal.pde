@@ -73,8 +73,8 @@ void setup() {
   item1.setData(item1Data);
   
   //drawing them maze
-  //colorMode(RGB, 360, 100, 100);
-  //blue = color(0, 50, 255);
+  colorMode(RGB, 360, 100, 100);
+  blue = color(0, 50, 255);
   //int wall =0;
   //for(int row=0; row < mazeLayout.length; row++){
   //    for (int col = 0; col< mazeLayout[row].length; col++){
@@ -124,6 +124,7 @@ void keyPressed(){
         direction2 = 0;
         item1.updateCol(-1);
         pac.updateCol(direction);
+        mazeLayout[r][i]=7;
       }
         
     } else if ( keyCode == RIGHT ) {
@@ -136,8 +137,8 @@ void keyPressed(){
         direction2 = 0;
         item1.updateCol(1);
         pac.updateCol(direction);
+        mazeLayout[r][i]=7;
       }
-      MOVE_RIGHT = false;
          
     } else if (keyCode == UP) {
       int r =pac.row()-1;
@@ -149,7 +150,8 @@ void keyPressed(){
         direction = 0;
         direction2 = -1;
         item1.updateRow(-1);
-        pac.updateRow(direction2);       
+        pac.updateRow(direction2);
+        mazeLayout[r][i]=7;
       }
       MOVE_UP = false;
     } else if (keyCode == DOWN) {
@@ -162,6 +164,7 @@ void keyPressed(){
         direction2 = 1;
         item1.updateRow(1);
         pac.updateRow(direction2);
+        mazeLayout[r][i]=7;
       }  
     }
   }

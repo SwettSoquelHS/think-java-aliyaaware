@@ -13,12 +13,6 @@ class Pacman extends BoardItem{
   }
   
   public int getLayerInfo(int row, int col){
-    for(int i=0; i < mazeLayout.length; i++){
-      for(int j=0; j<mazeLayout.length; j++){
-        row = i;
-        col = j;
-      }
-    }
     return mazeLayout[row][col];
   }
   
